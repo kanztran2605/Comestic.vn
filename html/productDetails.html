@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết sản phẩm - Cosmetics.vn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/productDetails.css">
+</head>
+
+<body>
+
+    <!-- TOP PROMO -->
+    <div class="top-promo-bar">
+        <div class="container">
+            <div class="left">
+                <span>FREESHIP đơn từ 249K</span>
+                <span>Giao nhanh 2H</span>
+            </div>
+            <div class="right">
+                <span>Hotline: 1900 123 456</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-main">
+            <!-- Logo -->
+            <div class="header-logo">
+                <a href="index.html">
+                    <img src="../images/AboutUs/Cosmetics.png" alt="Cosmetics.vn">
+                </a>
+            </div>
+
+            <!-- Search + tagline -->
+            <div class="header-center">
+                <div class="header-tagline">
+                    Mỹ phẩm chính hãng - Nhận hàng liền tay
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Tìm kiếm sản phẩm...">
+                    <span class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Đăng nhập + giỏ hàng -->
+            <div class="header-right">
+                <a href="login.html" class="auth-link" id="header-auth-text">
+                    Đăng nhập / Đăng ký
+                </a>
+                <a href="shoppingCart.html" class="cart-button">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="header-cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CHI TIẾT SẢN PHẨM -->
+    <main class="product-detail-page">
+
+        <div class="product-detail-layout">
+            <!-- ẢNH SẢN PHẨM -->
+            <div class="product-detail-images">
+                <div class="product-detail-main">
+                    <img id="detail-main-img" src="" alt="">
+                </div>
+                <div class="product-detail-thumbs">
+                    <img id="detail-thumb-1" src="" alt="">
+                    <img id="detail-thumb-2" src="" alt="">
+                    <img id="detail-thumb-3" src="" alt="">
+                </div>
+            </div>
+
+            <!-- THÔNG TIN SẢN PHẨM -->
+            <div class="product-detail-info">
+                <h1 id="detail-name"></h1>
+                <div class="product-detail-meta">
+                    <span id="detail-brand"></span>
+                    <span>|</span>
+                    <span id="detail-volume"></span>
+                    <span>|</span>
+                    <span id="detail-rating"></span>
+                </div>
+
+                <div class="product-detail-price-row">
+                    <span class="current-price" id="detail-current-price"></span>
+                    <span class="old-price" id="detail-old-price"></span>
+                </div>
+
+                <div class="product-detail-desc" id="detail-desc"></div>
+
+                <div class="product-detail-actions">
+                    <button class="btn btn-outline" id="btn-add-to-cart">Thêm vào giỏ</button>
+                    <button class="btn" id="btn-buy-now">Mua ngay</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SẢN PHẨM LIÊN QUAN -->
+        <section class="related-section">
+            <div class="section-header">
+                <h2>Sản phẩm liên quan</h2>
+                <div class="subtitle">Một số sản phẩm khác cùng nhãn hàng</div>
+            </div>
+            <div class="product-grid" id="related-products">
+                <!-- JS render 4 sản phẩm ở đây -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>COSMETICS.VN</h3>
+                <p>Mỹ phẩm chính hãng, giá tốt, giao nhanh trong ngày.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Liên hệ</h3>
+                <p>Hotline: 1900 123 456</p>
+                <p>Email: support@cosmetics.vn</p>
+                <p>TP.HCM - Hà Nội - Đà Nẵng</p>
+            </div>
+            <div class="footer-col">
+                <h3>Kết nối</h3>
+                <div class="footer-social">
+                    <img src="../images/AboutUs/facebook.png" alt="Facebook">
+                    <img src="../images/AboutUs/Google.png" alt="Google">
+                    <img src="../images/AboutUs/ins.png" alt="Instagram">
+                    <img src="../images/AboutUs/youtube.png" alt="Youtube">
+                </div>
+            </div>
+        </div>
+        <div class="footer-credit">
+            © 2025 Cosmetics.vn
+        </div>
+    </footer>
+
+    <!-- JS LIBS -->
+    <script src="../js/jquery-3.6.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/js/all.min.js"></script>
+
+    <!-- PAGE JS -->
+    <script src="../js/cart.js"></script>
+    <script src="../js/productDetails.js"></script>
+    <script src="../js/user.js"></script>
+</body>
+
+</html>

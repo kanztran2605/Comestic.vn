@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Thông tin cá nhân - Cosmetics.vn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/personalInfo.css">
+</head>
+
+<body>
+
+    <!-- HEADER CHUNG -->
+    <!-- TOP PROMO -->
+    <div class="top-promo-bar">
+        <div class="container">
+            <div class="left">
+                <span>FREESHIP đơn từ 249K</span>
+                <span>Giao nhanh 2H</span>
+            </div>
+            <div class="right">
+                <span>Hotline: 1900 123 456</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-main">
+            <!-- Logo -->
+            <div class="header-logo">
+                <a href="index.html">
+                    <img src="../images/AboutUs/Cosmetics.png" alt="Cosmetics.vn">
+                </a>
+            </div>
+
+            <!-- Search + tagline -->
+            <div class="header-center">
+                <div class="header-tagline">
+                    Mỹ phẩm chính hãng - Nhận hàng liền tay
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Tìm kiếm sản phẩm...">
+                    <span class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Đăng nhập + giỏ hàng -->
+            <div class="header-right">
+                <a href="login.html" class="auth-link" id="header-auth-text">
+                    Đăng nhập / Đăng ký
+                </a>
+                <a href="shoppingCart.html" class="cart-button">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="header-cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="profile-page">
+        <form class="profile-card" id="profile-form">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <img src="../images/icon/user.png" alt="User">
+                </div>
+                <div>
+                    <h1>Thông tin cá nhân</h1>
+                    <p class="profile-subtitle">Cập nhật thông tin để đặt hàng nhanh hơn</p>
+                </div>
+            </div>
+
+            <div class="profile-grid">
+                <div class="profile-field">
+                    <label for="profile-fullname">Họ và tên <span class="required">*</span></label>
+                    <input id="profile-fullname" type="text" placeholder="Nguyễn Văn A">
+                </div>
+
+                <div class="profile-field">
+                    <label for="profile-phone">Số điện thoại <span class="required">*</span></label>
+                    <input id="profile-phone" type="tel" placeholder="0123 456 789">
+                </div>
+
+                <div class="profile-field">
+                    <label for="profile-email">Email</label>
+                    <input id="profile-email" type="email" placeholder="email@domain.com">
+                </div>
+
+                <div class="profile-field">
+                    <label for="profile-city">Tỉnh / Thành phố</label>
+                    <input id="profile-city" type="text" placeholder="TP.HCM">
+                </div>
+
+                <div class="profile-field">
+                    <label for="profile-district">Quận / Huyện</label>
+                    <input id="profile-district" type="text" placeholder="Quận 1, Quận 7,...">
+                </div>
+
+                <div class="profile-field profile-field-full">
+                    <label for="profile-address">Địa chỉ chi tiết</label>
+                    <input id="profile-address" type="text" placeholder="Số nhà, đường, phường/xã, quận/huyện">
+                </div>
+            </div>
+
+            <div class="profile-actions">
+                <button type="button" class="btn btn-outline" id="btn-back-home">
+                    Về trang chủ
+                </button>
+                <button type="submit" class="btn" id="btn-save-profile">
+                    Lưu thay đổi
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <!-- FOOTER CHUNG -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>COSMETICS.VN</h3>
+                <p>Mỹ phẩm chính hãng, giá tốt, giao nhanh trong ngày.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Liên hệ</h3>
+                <p>Hotline: 1900 123 456</p>
+                <p>Email: support@cosmetics.vn</p>
+                <p>TP.HCM - Hà Nội - Đà Nẵng</p>
+            </div>
+            <div class="footer-col">
+                <h3>Kết nối</h3>
+                <div class="footer-social">
+                    <img src="../images/AboutUs/facebook.png" alt="Facebook">
+                    <img src="../images/AboutUs/Google.png" alt="Google">
+                    <img src="../images/AboutUs/ins.png" alt="Instagram">
+                    <img src="../images/AboutUs/youtube.png" alt="Youtube">
+                </div>
+            </div>
+        </div>
+        <div class="footer-credit">
+            © 2025 Cosmetics.vn
+        </div>
+    </footer>
+
+    <!-- JS LIBS (sau này dùng JS thì thêm) -->
+    <script src="../js/jquery-3.6.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/js/all.min.js"></script>
+
+    <!-- PAGE JS -->
+    <script src="../js/cart.js"></script>
+    <script src="../js/user.js"></script>
+</body>
+
+</html>

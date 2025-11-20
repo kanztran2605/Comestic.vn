@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký tài khoản - Cosmetics.vn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+
+<body>
+
+    <!-- HEADER CHUNG -->
+    <!-- TOP PROMO -->
+    <div class="top-promo-bar">
+        <div class="container">
+            <div class="left">
+                <span>FREESHIP đơn từ 249K</span>
+                <span>Giao nhanh 2H</span>
+            </div>
+            <div class="right">
+                <span>Hotline: 1900 123 456</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-main">
+            <!-- Logo -->
+            <div class="header-logo">
+                <a href="index.html">
+                    <img src="../images/AboutUs/Cosmetics.png" alt="Cosmetics.vn">
+                </a>
+            </div>
+
+            <!-- Search + tagline -->
+            <div class="header-center">
+                <div class="header-tagline">
+                    Mỹ phẩm chính hãng - Nhận hàng liền tay
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Tìm kiếm sản phẩm...">
+                    <span class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Đăng nhập + giỏ hàng -->
+            <div class="header-right">
+                <a href="login.html" class="auth-link" id="header-auth-text">
+                    Đăng nhập / Đăng ký
+                </a>
+                <a href="shoppingCart.html" class="cart-button">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="header-cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="auth-page">
+        <div class="auth-card">
+            <h1>Đăng ký tài khoản</h1>
+            <form id="signup-form">
+                <label for="signup-fullname">Họ và tên</label>
+                <input id="signup-fullname" type="text" placeholder="Nguyễn Văn A" required>
+
+                <label for="signup-phone">Số điện thoại *</label>
+                <input id="signup-phone" type="tel" placeholder="0123 456 789" required>
+
+                <label for="signup-email">Email</label>
+                <input id="signup-email" type="email" placeholder="email@domain.com">
+
+                <label for="signup-password">Mật khẩu</label>
+                <input id="signup-password" type="password" placeholder="Tối thiểu 6 ký tự" required>
+
+                <label for="signup-confirm">Nhập lại mật khẩu</label>
+                <input id="signup-confirm" type="password" placeholder="Nhập lại mật khẩu" required>
+
+                <button type="submit" class="btn" style="margin-top:0.5rem;">
+                    Đăng ký
+                </button>
+            </form>
+            <p>
+                Đã có tài khoản?
+                <a href="login.html">Đăng nhập</a>
+            </p>
+        </div>
+    </main>
+
+    <!-- FOOTER CHUNG -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>COSMETICS.VN</h3>
+                <p>Mỹ phẩm chính hãng, giá tốt, giao nhanh trong ngày.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Liên hệ</h3>
+                <p>Hotline: 1900 123 456</p>
+                <p>Email: support@cosmetics.vn</p>
+                <p>TP.HCM - Hà Nội - Đà Nẵng</p>
+            </div>
+            <div class="footer-col">
+                <h3>Kết nối</h3>
+                <div class="footer-social">
+                    <img src="../images/AboutUs/facebook.png" alt="Facebook">
+                    <img src="../images/AboutUs/Google.png" alt="Google">
+                    <img src="../images/AboutUs/ins.png" alt="Instagram">
+                    <img src="../images/AboutUs/youtube.png" alt="Youtube">
+                </div>
+            </div>
+        </div>
+        <div class="footer-credit">
+            © 2025 Cosmetics.vn
+        </div>
+    </footer>
+
+    <!-- JS LIBS -->
+    <script src="../js/jquery-3.6.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/js/all.min.js"></script>
+
+    <!-- JS CỦA BẠN -->
+    <script src="../js/cart.js"></script>
+    <script src="../js/user.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+
+</html>

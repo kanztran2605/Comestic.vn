@@ -1,0 +1,141 @@
+/* ==========================
+   PERSONAL INFO / PROFILE
+   ========================== */
+
+.profile-page {
+    display: flex;
+    justify-content: center;
+    padding: 4rem 1.6rem 5rem;
+}
+
+.profile-card {
+    max-width: 640px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 1.8rem;
+    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+    padding: 2.4rem 2.6rem 2.6rem;
+    font-size: 1.4rem;
+}
+
+/* Header avatar + title */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    margin-bottom: 1.8rem;
+}
+
+.profile-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(22, 163, 74, 0.45);
+}
+
+.profile-avatar img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.25));
+}
+
+.profile-card h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.profile-subtitle {
+    font-size: 1.3rem;
+    color: #6b7280;
+}
+
+/* Grid form fields */
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.4rem 1.6rem;
+    margin-top: 0.6rem;
+}
+
+.profile-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.profile-field-full {
+    grid-column: 1 / -1;
+}
+
+.profile-field label {
+    font-weight: 600;
+    color: #111827;
+    font-size: 1.35rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.profile-field .required {
+    color: #ef4444;
+}
+
+/* Inputs */
+.profile-field input,
+.profile-field textarea {
+    width: 100%;
+    padding: 0.9rem 1.1rem;
+    border-radius: 0.9rem;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+    font-size: 1.35rem;
+    color: #111827;
+}
+
+.profile-field input::placeholder,
+.profile-field textarea::placeholder {
+    color: #9ca3af;
+}
+
+.profile-field textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Focus */
+.profile-field input:focus,
+.profile-field textarea:focus {
+    outline: none;
+    border-color: #22c55e;
+    background: #ffffff;
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.18);
+}
+
+/* Action buttons */
+.profile-actions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1.2rem;
+}
+
+.profile-actions .btn {
+    min-width: 150px;
+    font-size: 1.45rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .profile-card {
+        padding: 2rem 1.8rem 2.2rem;
+    }
+
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+}

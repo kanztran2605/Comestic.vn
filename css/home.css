@@ -1,0 +1,226 @@
+/* ==========================
+   HERO / BANNER HOME
+   ========================== */
+.hero-section {
+    padding-top: 2rem;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    /* banner 3/5, brand 2/5 */
+    gap: 2rem;
+    align-items: stretch;
+    /* cao ngang nhau */
+}
+
+/* BANNER SLIDER */
+.hero-banner {
+    position: relative;
+    border-radius: 1.6rem;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    min-height: 260px;
+}
+
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease;
+}
+
+.hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #fff;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Nút điều hướng slide */
+.hero-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3.4rem;
+    height: 3.4rem;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.85);
+    color: #333;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.hero-prev {
+    left: 1.2rem;
+}
+
+.hero-next {
+    right: 1.2rem;
+}
+
+.hero-nav:hover {
+    background: #00a651;
+    color: #fff;
+}
+
+/* BRAND SELECTOR – cao ngang banner, chiếm 2/5 */
+.brand-selector {
+    background: #ffffff;
+    border-radius: 1.6rem;
+    padding: 2rem 2.4rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* text trên, logo dưới */
+}
+
+.brand-selector h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.4rem;
+    color: #222;
+}
+
+.brand-subtitle {
+    font-size: 1.3rem;
+    color: #666;
+}
+
+/* lưới brand */
+.brand-grid {
+    margin-top: 1.2rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+}
+
+.brand-item {
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    padding: 1.2rem;
+    background: #f9fafb;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .2s ease;
+    text-decoration: none;
+}
+
+.brand-item img {
+    max-height: 60px;
+    width: auto;
+    object-fit: contain;
+}
+
+.brand-item:hover {
+    border-color: #00a651;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+    background: #ffffff;
+}
+
+/* RESPONSIVE CHO HOME */
+@media (max-width: 991px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==== CARD SẢN PHẨM CHUNG (HOME + PRODUCT LIST) ==== */
+
+.product-card {
+    position: relative;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
+}
+
+/* ảnh + giảm khoảng trắng trên/dưới */
+.product-image-wrapper {
+    position: relative;
+    padding: 12px 12px 8px;
+}
+
+.product-card .product-image {
+    display: block;
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* FLASH DEAL góc trái – bản to hơn */
+.product-card.flash::before {
+    content: "FLASH DEAL";
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    padding: 4px 14px;
+    background: #ff7a00;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.2rem;
+    border-radius: 999px;
+    z-index: 5;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
+}
+
+/* Thanh FLASH DEAL dưới ảnh */
+.product-card .flash-bar {
+    margin: 8px 16px 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: #ff7a00;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+/* info + nút giống y chang home */
+.product-info {
+    padding: 0 16px 8px;
+}
+
+.product-price-row {
+    margin-top: 4px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.product-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px 16px 16px;
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Giỏ hàng - Cosmetics.vn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/shoppingCart.css">
+</head>
+
+<body>
+
+    <!-- HEADER CHUNG -->
+    <!-- TOP PROMO -->
+    <div class="top-promo-bar">
+        <div class="container">
+            <div class="left">
+                <span>FREESHIP đơn từ 249K</span>
+                <span>Giao nhanh 2H</span>
+            </div>
+            <div class="right">
+                <span>Hotline: 1900 123 456</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-main">
+            <!-- Logo -->
+            <div class="header-logo">
+                <a href="index.html">
+                    <img src="../images/AboutUs/Cosmetics.png" alt="Cosmetics.vn">
+                </a>
+            </div>
+
+            <!-- Search + tagline -->
+            <div class="header-center">
+                <div class="header-tagline">
+                    Mỹ phẩm chính hãng - Nhận hàng liền tay
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Tìm kiếm sản phẩm...">
+                    <span class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Đăng nhập + giỏ hàng -->
+            <div class="header-right">
+                <a href="login.html" class="auth-link" id="header-auth-text">
+                    Đăng nhập / Đăng ký
+                </a>
+                <a href="shoppingCart.html" class="cart-button">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="header-cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="page cart-page">
+        <h1>Giỏ hàng của bạn</h1>
+
+        <!-- Khi giỏ trống -->
+        <!-- GIỎ HÀNG TRỐNG -->
+        <div id="empty-cart" class="empty-cart" style="display: none;">
+            <div class="empty-cart-inner">
+                <div class="empty-cart-icon">
+                    <!-- Đổi src lại đúng đường dẫn icon của bạn -->
+                    <img src="../images/giohang/empty-cart.jpg" alt="Giỏ hàng trống">
+                </div>
+
+                <h2 class="empty-cart-title">ÔI KHÔNG!!! BẠN CHƯA THÊM HÀNG VÀO GIỎ</h2>
+                <p class="empty-cart-text">
+                    Giỏ hàng đang trống, hãy chọn thêm sản phẩm bạn nhé!!!
+                </p>
+
+                <a href="index.html" class="btn btn-primary empty-cart-btn">
+                    Về trang chủ mua hàng
+                </a>
+            </div>
+        </div>
+
+
+        <!-- Khi có sản phẩm -->
+        <div class="cart-table-wrapper" id="cart-table-wrapper">
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th>Thành tiền</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items-body">
+                    <!-- JS đổ dữ liệu -->
+                </tbody>
+            </table>
+
+            <div class="cart-summary">
+                <div>
+                    Tổng tạm tính: <strong id="cart-total">0đ</strong>
+                </div>
+                <div>
+                    <a href="index.html" class="btn btn-outline">Tiếp tục mua sắm</a>
+                    <a href="checkOut.html" class="btn" id="btn-checkout">Thanh toán</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER CHUNG -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>COSMETICS.VN</h3>
+                <p>Mỹ phẩm chính hãng, giá tốt, giao nhanh trong ngày.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Liên hệ</h3>
+                <p>Hotline: 1900 123 456</p>
+                <p>Email: support@cosmetics.vn</p>
+                <p>TP.HCM - Hà Nội - Đà Nẵng</p>
+            </div>
+            <div class="footer-col">
+                <h3>Kết nối</h3>
+                <div class="footer-social">
+                    <img src="../images/AboutUs/facebook.png" alt="Facebook">
+                    <img src="../images/AboutUs/Google.png" alt="Google">
+                    <img src="../images/AboutUs/ins.png" alt="Instagram">
+                    <img src="../images/AboutUs/youtube.png" alt="Youtube">
+                </div>
+            </div>
+        </div>
+        <div class="footer-credit">
+            © 2025 Cosmetics.vn - Bài tập lớn cá nhân.
+        </div>
+    </footer>
+
+    <!-- JS LIBS -->
+    <script src="../js/jquery-3.6.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/js/all.min.js"></script>
+
+    <!-- CART CORE + TRANG GIỎ HÀNG -->
+    <script src="../js/cart.js"></script>
+    <script src="../js/shoppingCart.js"></script>
+    <script src="../js/user.js"></script>
+</body>
+
+</html>

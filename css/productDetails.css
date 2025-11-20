@@ -1,0 +1,255 @@
+/* ==========================
+   PRODUCT DETAILS PAGE
+   ========================== */
+.product-detail-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.product-detail-layout {
+    display: grid;
+    grid-template-columns: 1.4fr 1.8fr;
+    gap: 2rem;
+}
+
+/* Cột trái: 3 ảnh */
+.product-detail-images {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 1.2rem;
+    box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, .05);
+}
+
+.product-detail-main {
+    border-radius: 0.8rem;
+    border: 1px solid #eee;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.product-detail-main img {
+    width: 100%;
+    max-height: 320px;
+    object-fit: contain;
+}
+
+.product-detail-thumbs {
+    display: flex;
+    gap: 1rem;
+}
+
+.product-detail-thumbs img {
+    flex: 1;
+    border-radius: 0.8rem;
+    border: 1px solid #eee;
+    padding: 0.5rem;
+    cursor: pointer;
+    max-height: 90px;
+    object-fit: contain;
+}
+
+.product-detail-thumbs img:hover {
+    border-color: #00a651;
+}
+
+/* Cột phải: thông tin sp */
+.product-detail-info {
+    background: #fff;
+    padding: 1.8rem;
+    border-radius: 1.2rem;
+    box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, .05);
+    font-size: 1.4rem;
+}
+
+.product-detail-info h1 {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+}
+
+.product-detail-meta {
+    display: flex;
+    gap: 0.8rem;
+    font-size: 1.3rem;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+.product-detail-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.product-detail-price-row .current-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #e53935;
+}
+
+.product-detail-price-row .old-price {
+    font-size: 1.4rem;
+    text-decoration: line-through;
+    color: #999;
+}
+
+.product-detail-desc {
+    margin-bottom: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.product-detail-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Gợi ý sản phẩm bên dưới */
+.related-section {
+    margin-top: 3rem;
+}
+
+/* GRID 4 CỘT CHO SẢN PHẨM LIÊN QUAN Ở TRANG CHI TIẾT */
+.related-section .product-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* Responsive cho layout + related */
+@media (max-width: 991px) {
+    .product-detail-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .related-section .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 500px) {
+    .related-section .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== CARD SẢN PHẨM LIÊN QUAN (giống home/productList) ===== */
+
+.related-section .product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.6rem;
+}
+
+@media (max-width: 992px) {
+    .related-section .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .related-section .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.product-card {
+    position: relative;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
+}
+
+/* toàn bộ card clickable */
+.product-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ảnh + giảm khoảng trắng trên/dưới */
+.product-image-wrapper {
+    position: relative;
+    padding: 12px 12px 8px;
+}
+
+.product-card .product-image {
+    display: block;
+    width: 100%;
+    border-radius: 12px;
+    transition: transform .25s ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.03);
+}
+
+/* FLASH DEAL góc trái – bản to hơn */
+.product-card.flash::before {
+    content: "FLASH DEAL";
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    padding: 4px 14px;
+    background: #ff7a00;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.2rem;
+    border-radius: 999px;
+    z-index: 5;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
+}
+
+/* Thanh FLASH DEAL dưới ảnh */
+.product-card .flash-bar {
+    margin: 8px 16px 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: #ff7a00;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+/* text + giá */
+.product-info {
+    padding: 0 16px 10px;
+}
+
+.product-price-row {
+    margin-top: 4px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.product-name {
+    margin-top: 4px;
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #111827;
+}
+
+.product-meta {
+    margin-top: 4px;
+    font-size: 1.25rem;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
