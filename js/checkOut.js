@@ -102,6 +102,14 @@ function initCheckoutPage() {
             handleCheckoutSubmit(total);
         });
     }
+
+    const backBtn = document.getElementById('checkout-back-home');
+    if (backBtn) {
+        backBtn.addEventListener('click', function () {
+            // Trang chủ của bạn giờ là index.html
+            window.location.href = 'index.html';
+        });
+    }
 }
 
 function handleCheckoutSubmit(totalAmount) {

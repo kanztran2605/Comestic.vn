@@ -100,6 +100,17 @@
     font-weight: 600;
 }
 
+.checkout-actions {
+    margin-top: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.checkout-actions .btn {
+    flex: 1;
+}
+
 /* ==========================
    BOX TÓM TẮT ĐƠN HÀNG
    ========================== */
@@ -192,7 +203,7 @@
 }
 
 @media (max-width: 640px) {
-    .checkout-form-row {
-        grid-template-columns: 1fr;
+    .checkout-actions {
+        flex-direction: column-reverse;
     }
 }

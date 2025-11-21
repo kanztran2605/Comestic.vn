@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-/* RESET & BASE */
+/* ==========================
+   RESET & BASE
+   ========================== */
 * {
     font-family: 'Inter', sans-serif;
     margin: 0;
@@ -11,6 +13,38 @@
     text-transform: none;
     transition: all .2s linear;
     box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+
+    /* Scrollbar (Firefox) */
+    scrollbar-width: thin;
+    scrollbar-color: #22c55e #020617;
+}
+
+/* Scrollbar (Chrome, Edge,...) */
+html::-webkit-scrollbar {
+    width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+    background: linear-gradient(to bottom, #020617, #111827);
+}
+
+html::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #22c55e, #16a34a);
+    border-radius: 999px;
+    border: 2px solid #020617;
+    box-shadow: 0 0 6px rgba(34, 197, 94, .6);
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #4ade80, #22c55e);
+    box-shadow: 0 0 8px rgba(74, 222, 128, .8);
 }
 
 body {
@@ -25,45 +59,7 @@ img {
     display: block;
 }
 
-html {
-    font-size: 62.5%;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    scroll-padding-top: 7rem;
-}
-
-/* SCROLLBAR CHUNG */
-html {
-    scrollbar-width: thin;
-    scrollbar-color: #22c55e #020617;
-}
-
-html::-webkit-scrollbar {
-    width: 8px;
-}
-
-html::-webkit-scrollbar-track {
-    background: linear-gradient(to bottom,
-            #020617,
-            #111827);
-}
-
-html::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg,
-            #22c55e,
-            #16a34a);
-    border-radius: 999px;
-    border: 2px solid #020617;
-    box-shadow: 0 0 6px rgba(34, 197, 94, .6);
-}
-
-html::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg,
-            #4ade80,
-            #22c55e);
-    box-shadow: 0 0 8px rgba(74, 222, 128, .8);
-}
-
+/* Section padding chung (home / list) */
 section {
     padding: 3rem 9%;
 }
@@ -79,10 +75,16 @@ span {
     font-size: 4rem;
 }
 
+/* PAGE WRAPPER CHUNG */
+.page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
 /* BUTTON CHUNG */
 .btn {
     display: inline-block;
-    margin-top: 0;
     padding: 1rem 2.4rem;
     color: #fff;
     font-size: 1.4rem;
@@ -110,13 +112,6 @@ span {
     color: #fff;
 }
 
-/* PAGE WRAPPER CHUNG */
-.page {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
 /* ANIMATION */
 @keyframes fadeIn {
     0% {
@@ -126,7 +121,7 @@ span {
 }
 
 /* ==========================
-   TOP PROMO BAR (CHUNG)
+   TOP PROMO BAR
    ========================== */
 .top-promo-bar {
     background: #77d89c;
@@ -161,13 +156,20 @@ span {
    HEADER CHUNG
    ========================== */
 .header {
+    position: relative;
+    /* mặc định: không sticky */
+    background: #004928c2;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+    z-index: 1000;
+}
+
+/* Header sticky CHỈ cho 1 số trang (body có class) */
+.page-home .header,
+.page-product-list .header {
     position: sticky;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
-    background: #004928c2;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
 }
 
 .header-main {
@@ -245,12 +247,14 @@ span {
     color: #ffffff;
 }
 
-/* Phải: user + cart */
+/* HEADER RIGHT: user + cart */
 .header-right {
     display: flex;
     align-items: center;
     gap: 1.5rem;
     white-space: nowrap;
+    position: relative;
+    /* để dropdown user bám theo */
 }
 
 .header-right .auth-link {
@@ -262,6 +266,7 @@ span {
     color: #fffbcc;
 }
 
+/* Giỏ hàng */
 .cart-button {
     position: relative;
     width: 4rem;
@@ -293,7 +298,7 @@ span {
     justify-content: center;
 }
 
-/* NAVBAR CHUNG (nếu trang nào dùng) */
+/* NAVBAR (nếu dùng) */
 .navbar {
     border-top: 1px solid #f0f0f0;
     background: #f8f9fa;
@@ -323,9 +328,132 @@ span {
     color: #00a651;
 }
 
-/* Mobile menu icon (nếu cần JS sau) */
+/* Mobile menu icon (nếu sau này cần) */
 #menu-btn {
     display: none;
+}
+
+/* ==========================
+   HOME HERO: BANNER + BRANDS
+   ========================== */
+.home-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 2.3fr) minmax(0, 1.5fr);
+    /* banner : brands */
+    gap: 1.8rem;
+}
+
+/* Khung banner */
+.hero-banner {
+    border-radius: 18px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    width: 100%;
+    aspect-ratio: 16 / 5;
+    /* cao / thấp tuỳ chỉnh */
+}
+
+/* Ảnh trong banner luôn full khung */
+.hero-banner img,
+.hero-banner .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* hoặc contain nếu muốn thấy đủ banner */
+    display: block;
+}
+
+/* Khung brands */
+.hero-brands {
+    border-radius: 18px;
+    background: #fff;
+    padding: 1.8rem 2rem;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    font-size: 1.35rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-brands h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.4rem;
+}
+
+.hero-brands p {
+    font-size: 1.3rem;
+    color: #6b7280;
+}
+
+/* Grid nhãn: box thấp lại cho đều với banner */
+.hero-brand-grid {
+    margin-top: 1.4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 70px;
+    gap: 1rem;
+}
+
+.hero-brand-item {
+    border-radius: 14px;
+    background: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+.hero-brand-item img {
+    max-width: 70%;
+    max-height: 48px;
+    object-fit: contain;
+}
+
+/* ==========================
+   SEARCH DROPDOWN (nếu dùng)
+   ========================== */
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 0.4rem;
+    background: #ffffff;
+    border-radius: 1.2rem;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+    padding: 0.4rem 0;
+    max-height: 320px;
+    overflow-y: auto;
+    z-index: 999;
+}
+
+.search-result-item {
+    padding: 0.8rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.35rem;
+    cursor: pointer;
+}
+
+.search-result-item img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.search-result-item-title {
+    flex: 1;
+    color: #111827;
+}
+
+.search-result-item-price {
+    font-weight: 600;
+    color: #e53935;
+}
+
+.search-result-item:hover {
+    background: #f3f4f6;
 }
 
 /* ==========================
@@ -360,7 +488,7 @@ span {
     gap: 2rem;
 }
 
-/* Card sản phẩm chung */
+/* Card sản phẩm */
 .product-card {
     background: #ffffff;
     border-radius: 1.6rem;
@@ -377,14 +505,12 @@ span {
     overflow: hidden;
     background: #ffffff;
     padding: 0.4rem;
-    box-sizing: border-box;
 }
 
 .product-image {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    display: block;
 }
 
 .sale-badge {
@@ -453,7 +579,7 @@ span {
 }
 
 /* ==========================
-   CART PAGE (CHUNG)
+   CART PAGE
    ========================== */
 .cart-page h1 {
     font-size: 2.2rem;
@@ -508,7 +634,7 @@ span {
 }
 
 /* ==========================
-   FOOTER CHUNG
+   FOOTER
    ========================== */
 .footer {
     margin-top: 4rem;
@@ -558,57 +684,8 @@ span {
 }
 
 /* ==========================
-   RESPONSIVE CHUNG
+   HEADER USER AVATAR + DROPDOWN
    ========================== */
-@media (max-width: 991px) {
-    html {
-        font-size: 58%;
-    }
-
-    .header-main {
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-
-    .header-center {
-        order: 3;
-        width: 100%;
-    }
-}
-
-@media (max-width: 768px) {
-    html {
-        font-size: 55%;
-    }
-
-    .navbar .container {
-        flex-wrap: wrap;
-    }
-
-    .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 500px) {
-    html {
-        font-size: 50%;
-    }
-
-    .product-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-/* ===== HEADER USER AVATAR ===== */
-.header-user {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    color: #ffffff;
-    font-size: 1.4rem;
-}
-
 .header-user-avatar {
     width: 28px;
     height: 28px;
@@ -619,23 +696,10 @@ span {
 }
 
 .header-user-name {
-    max-width: 120px;
+    max-width: 130px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-/* ==========================
-   HEADER – USER DROPDOWN
-   ========================== */
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    white-space: nowrap;
-    position: relative;
-    /* để dropdown bám theo */
 }
 
 /* Nút user (thay cho "Đăng nhập / Đăng ký" khi đã login) */
@@ -648,28 +712,12 @@ span {
     cursor: pointer;
 }
 
-.header-user-toggle .header-user-avatar {
-    width: 28px;
-    height: 28px;
-    border-radius: 999px;
-    background: #ffffff;
-    padding: 2px;
-    object-fit: contain;
-}
-
-.header-user-toggle .header-user-name {
-    max-width: 130px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
 .header-user-toggle .header-user-caret {
     font-size: 1.1rem;
     opacity: 0.9;
 }
 
-/* hover effect */
+/* Hover effect */
 .header-user-toggle:hover .header-user-name {
     color: #fffbcc;
 }
@@ -711,4 +759,194 @@ span {
 
 .header-user-item.header-user-logout {
     color: #b91c1c;
+}
+
+/* ==========================
+   RESPONSIVE
+   ========================== */
+
+/* Tablet ~ < 991px */
+@media (max-width: 991px) {
+    html {
+        font-size: 58%;
+    }
+
+    .header-main {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .header-center {
+        order: 3;
+        width: 100%;
+    }
+
+    .products-section {
+        padding: 1rem 1.6rem 2.6rem;
+    }
+}
+
+/* < 768px */
+@media (max-width: 768px) {
+    html {
+        font-size: 55%;
+    }
+
+    .navbar .container {
+        flex-wrap: wrap;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .home-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-banner {
+        aspect-ratio: 16 / 6;
+        /* cao hơn chút ở mobile */
+    }
+
+    .hero-brands {
+        margin-top: 1rem;
+    }
+
+    /* Giảm padding / chỉnh header & footer cho gọn */
+    .page {
+        padding: 1.6rem 1.4rem 2.4rem;
+    }
+
+    .top-promo-bar {
+        font-size: 1.2rem;
+        padding: 0.6rem 0;
+    }
+
+    .top-promo-bar .container {
+        padding: 0 1.4rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+    }
+
+    .top-promo-bar .left,
+    .top-promo-bar .right {
+        gap: 0.8rem;
+        flex-wrap: wrap;
+    }
+
+    .header-main {
+        padding: 0.8rem 1.4rem;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+    }
+
+    .header-logo img {
+        height: 56px;
+    }
+
+    .header-tagline {
+        font-size: 1.2rem;
+        margin-top: 0.2rem;
+    }
+
+    .search-bar input {
+        font-size: 1.3rem;
+        padding: 0.9rem 1.2rem;
+    }
+
+    .header-right {
+        gap: 1rem;
+        font-size: 1.3rem;
+    }
+
+    .cart-button {
+        width: 3.4rem;
+        height: 3.4rem;
+        font-size: 1.6rem;
+    }
+
+    .cart-count {
+        width: 1.6rem;
+        height: 1.6rem;
+        font-size: 1rem;
+    }
+
+    .footer {
+        margin-top: 3rem;
+    }
+
+    .footer-container {
+        padding: 1.6rem 1.4rem 1.8rem;
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+    }
+
+    .footer-social {
+        justify-content: flex-start;
+    }
+
+    .footer-credit {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.4rem 1.2rem;
+    }
+}
+
+/* Mobile nhỏ hơn ~ 480px */
+@media (max-width: 480px) {
+    html {
+        font-size: 50%;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .header-main {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.8rem 1.2rem;
+    }
+
+    .header-logo {
+        justify-content: center;
+    }
+
+    .header-center {
+        order: 2;
+        width: 100%;
+    }
+
+    .header-tagline {
+        display: none;
+        /* ẩn tagline cho đỡ chật */
+    }
+
+    .header-right {
+        order: 3;
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .search-bar {
+        margin-top: 0.4rem;
+    }
+
+    .search-bar input {
+        font-size: 1.25rem;
+        padding: 0.85rem 1.1rem;
+    }
+
+    .footer-col {
+        text-align: center;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+    .footer-container {
+        padding: 1.4rem 1.2rem 1.8rem;
+    }
 }

@@ -43,17 +43,12 @@ function updateCartBadge() {
 
 // Thêm sản phẩm từ 1 nút bất kỳ có data-*
 // ✅ CHẶN NẾU CHƯA ĐĂNG NHẬP
+// Thêm sản phẩm từ 1 nút bất kỳ có data-*
 function addToCartFromButton(btn, options = {}) {
-    const { redirectToCheckout = false, qty = 1 } = options;
-
-    // Kiểm tra login
-    const currentUserJSON = localStorage.getItem('currentUser');
-    if (!currentUserJSON) {
-        alert('Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng.');
-        // Có thể chuyển sang login nếu muốn:
-        // window.location.href = 'login.html';
-        return;
-    }
+    const {
+        redirectToCheckout = false,
+        qty = 1
+    } = options;
 
     const id = btn.dataset.productId;
     if (!id) return;
@@ -63,6 +58,30 @@ function addToCartFromButton(btn, options = {}) {
     const image = btn.dataset.image || '';
     const price = Number(btn.dataset.price || '0');
 
+    // ===== CASE 1: MUA NGAY =====
+    if (redirectToCheckout) {
+        // Không đụng tới giỏ hàng chung
+        const checkoutItem = {
+            id,
+            name,
+            brand,
+            image,
+            price,
+            qty
+        };
+
+        saveSelectedCart([checkoutItem]);
+
+        // Cập nhật lại badge theo giỏ hiện tại (không thay đổi)
+        if (typeof updateCartBadge === 'function') {
+            updateCartBadge();
+        }
+
+        window.location.href = 'checkOut.html';
+        return;
+    }
+
+    // ===== CASE 2: THÊM VÀO GIỎ =====
     let cart = getCart();
     let item = cart.find(i => i.id === id);
 
@@ -79,21 +98,7 @@ function addToCartFromButton(btn, options = {}) {
     // Nếu đang ở trang giỏ thì re-render
     renderCartPageIfNeeded();
 
-    if (redirectToCheckout) {
-        // "Mua ngay": chỉ thanh toán sản phẩm này
-        const checkoutItem = {
-            id: item.id,
-            name: item.name,
-            brand: item.brand,
-            image: item.image,
-            price: item.price,
-            qty: item.qty, // số lượng hiện tại
-        };
-        saveSelectedCart([checkoutItem]);
-        window.location.href = 'checkOut.html';
-    } else {
-        alert('Đã thêm vào giỏ hàng!');
-    }
+    alert('Đã thêm vào giỏ hàng!');
 }
 
 // Cập nhật tổng tiền ở footer giỏ hàng
