@@ -1,57 +1,26 @@
 // js/search.js
 
-const SEARCH_KEY = "header_search_keyword";
-
 function isHomePage() {
     const path = window.location.pathname;
+    const body = document.body;
     return (
+        body.classList.contains("page-home") ||
         path.endsWith("/") ||
         path.endsWith("index.html") ||
-        path.endsWith("home.html")  // phòng khi bạn còn file cũ
+        path.endsWith("home.html")
     );
 }
 
-// Lọc sản phẩm trên trang home
-function applySearchOnHome(keyword) {
-    const cards = document.querySelectorAll(".product-card");
-    if (!cards.length) return;
-
-    const normalized = (keyword || "").toLowerCase();
-    let matchCount = 0;
-
-    cards.forEach(card => {
-        const text = card.textContent.toLowerCase();
-        const matched = !normalized || text.includes(normalized);
-
-        card.style.display = matched ? "" : "none";
-        if (matched) matchCount++;
-    });
-
-    const emptyNote = document.getElementById("search-empty-note");
-    if (emptyNote) {
-        if (!normalized) {
-            emptyNote.style.display = "none";
-        } else if (matchCount === 0) {
-            emptyNote.style.display = "block";
-            emptyNote.textContent = `Không tìm thấy sản phẩm phù hợp với "${keyword}".`;
-        } else {
-            emptyNote.style.display = "none";
-        }
-    }
-
-    const productsSection =
-        document.getElementById("products-section") ||
-        document.querySelector(".products-section");
-
-    if (productsSection) {
-        productsSection.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-    }
+function isProductListPage() {
+    const path = window.location.pathname;
+    const body = document.body;
+    return (
+        body.classList.contains("page-product-list") ||
+        path.endsWith("productList.html")
+    );
 }
 
-function setupHeaderSearch() {
+document.addEventListener("DOMContentLoaded", function () {
     const input = document.getElementById("header-search-input");
     if (!input) return;
 
@@ -59,17 +28,50 @@ function setupHeaderSearch() {
     const icon = wrapper ? wrapper.querySelector(".search-icon") : null;
 
     function doSearch() {
-        const keyword = input.value.trim();
+        const keyword = (input.value || "").trim();
 
-        // Lưu keyword để dùng sau khi redirect
-        localStorage.setItem(SEARCH_KEY, keyword);
+        // ĐANG Ở TRANG HOME (index.html)
+        if (isHomePage()) {
+            if (typeof window.applyHomeSearch === "function") {
+                window.applyHomeSearch(keyword);
+            }
 
-        if (!isHomePage()) {
-            // Đang ở trang khác -> nhảy về index.html
+            const productsSection =
+                document.getElementById("products-section") ||
+                document.querySelector(".products-section");
+
+            if (productsSection) {
+                productsSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+            return;
+        }
+
+        // ĐANG Ở TRANG DANH SÁCH (productList.html)
+        if (isProductListPage()) {
+            if (typeof window.applyProductListSearch === "function") {
+                window.applyProductListSearch(keyword);
+            }
+            const listSection =
+                document.getElementById("brand-products") ||
+                document.querySelector("#brand-products");
+            if (listSection) {
+                listSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+            return;
+        }
+
+        // CÁC TRANG KHÁC -> ĐẨY VỀ HOME
+        if (!keyword) {
             window.location.href = "index.html";
         } else {
-            // Đang ở home -> lọc luôn
-            applySearchOnHome(keyword);
+            window.location.href =
+                "index.html?keyword=" + encodeURIComponent(keyword);
         }
     }
 
@@ -87,14 +89,13 @@ function setupHeaderSearch() {
         });
     }
 
-    // Nếu vừa redirect từ trang khác về home với keyword đã lưu
+    // Nếu từ trang khác redirect về home/index với ?keyword=...
     if (isHomePage()) {
-        const saved = localStorage.getItem(SEARCH_KEY) || "";
-        if (saved) {
-            input.value = saved;
-            applySearchOnHome(saved);
+        const params = new URLSearchParams(window.location.search);
+        const kw = params.get("keyword") || "";
+        if (kw && typeof window.applyHomeSearch === "function") {
+            input.value = kw;
+            window.applyHomeSearch(kw);
         }
     }
-}
-
-document.addEventListener("DOMContentLoaded", setupHeaderSearch);
+});

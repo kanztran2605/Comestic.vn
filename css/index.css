@@ -8,10 +8,8 @@
 .hero-grid {
     display: grid;
     grid-template-columns: 3fr 2fr;
-    /* banner 3/5, brand 2/5 */
     gap: 2rem;
     align-items: stretch;
-    /* cao ngang nhau */
 }
 
 /* BANNER SLIDER */
@@ -21,36 +19,32 @@
     overflow: hidden;
     background: #fff;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-    min-height: 260px;
+    width: 100%;
+    /* không đặt aspect-ratio, chiều cao tự theo ảnh */
 }
 
 .hero-slider {
-    position: relative;
     width: 100%;
-    height: 100%;
 }
 
 .hero-slide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.6s ease;
-}
-
-.hero-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    background: #fff;
+    display: none;
 }
 
 .hero-slide.active {
-    opacity: 1;
-    visibility: visible;
+    display: block;
 }
 
-/* Nút điều hướng slide */
+/* Ảnh banner: luôn đủ, không bị cắt chữ */
+.hero-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    background: #fff;
+    display: block;
+}
+
+/* Nút điều hướng */
 .hero-nav {
     position: absolute;
     top: 50%;
@@ -59,7 +53,7 @@
     height: 3.4rem;
     border-radius: 50%;
     border: none;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.9);
     color: #333;
     font-size: 2rem;
     display: flex;
@@ -67,6 +61,15 @@
     justify-content: center;
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease;
+}
+
+.hero-banner:hover .hero-nav {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .hero-prev {
@@ -82,21 +85,25 @@
     color: #fff;
 }
 
-/* BRAND SELECTOR – cao ngang banner, chiếm 2/5 */
+/* ==========================
+   KHUNG NHÃN HÀNG NỔI BẬT
+   ========================== */
 .brand-selector {
     background: #ffffff;
     border-radius: 1.6rem;
-    padding: 2rem 2.4rem;
+    padding: 1.4rem 2rem;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
+    gap: 1.2rem;
+
+    height: 100%;
     justify-content: space-between;
-    /* text trên, logo dưới */
 }
 
 .brand-selector h3 {
     font-size: 1.8rem;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.2rem;
     color: #222;
 }
 
@@ -105,29 +112,31 @@
     color: #666;
 }
 
-/* lưới brand */
+/* Lưới brand – thu gọn lại */
 .brand-grid {
-    margin-top: 1.2rem;
+    margin-top: 0.4rem;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.2rem;
+    gap: 0.8rem;
+    /* ↓ bớt khoảng cách ô */
 }
 
 .brand-item {
     border: 1px solid #e2e8f0;
     border-radius: 1rem;
-    padding: 1.2rem;
+    padding: 0.8rem 1rem;
+    /* ↓ bớt padding */
     background: #f9fafb;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all .2s ease;
-    text-decoration: none;
 }
 
 .brand-item img {
-    max-height: 60px;
+    max-height: 48px;
+    /* ↓ logo thấp hơn chút */
     width: auto;
     object-fit: contain;
 }
@@ -194,7 +203,6 @@
 
 /* Thanh FLASH DEAL dưới ảnh */
 .product-card .flash-bar {
-    margin: 8px 16px 4px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -223,4 +231,82 @@
     justify-content: center;
     gap: 12px;
     padding: 10px 16px 16px;
+}
+
+/* Thanh filter/sort của block sản phẩm trang chủ */
+.products-section .products-toolbar {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.4rem;
+}
+
+.products-section .products-toolbar select {
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    font-size: 1.3rem;
+}
+
+/* Phân trang dưới lưới sản phẩm */
+.home-pagination {
+    margin-top: 1.6rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.home-pagination .page-btn {
+    min-width: 32px;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    cursor: pointer;
+    font-size: 1.3rem;
+}
+
+.home-pagination .page-btn.active {
+    background: #00a651;
+    color: #ffffff;
+    border-color: #00a651;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .hero-nav {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+@media (max-width: 991px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: 1.6rem;
+    }
+
+    .hero-banner {
+        border-radius: 12px;
+    }
+
+    .brand-selector {
+        margin-top: 1.2rem;
+        padding: 1.2rem 1.4rem;
+    }
+
+    .brand-grid {
+        gap: 0.6rem;
+    }
+
+    .brand-item img {
+        max-height: 40px;
+    }
 }

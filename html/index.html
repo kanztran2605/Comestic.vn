@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <title>Cosmetics.vn - Trang chủ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../images/icon/logo.png">
+    <link rel="shortcut icon" type="image/png" href="../images/icon/logo.png">
+
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 
 <body class="page-home">
@@ -117,18 +120,25 @@
         </div>
     </section>
 
-
-    <!-- SẢN PHẨM TRANG CHỦ (12 sp: 4 hãng x 3 sản phẩm) -->
     <section class="products-section" id="products-section">
         <div class="section-header">
             <h2>Sản phẩm nổi bật</h2>
-            <p class="subtitle">Ưu đãi hôm nay</p>
         </div>
 
         <!-- NOTE hiển thị khi không có kết quả -->
         <p id="search-empty-note" style="display:none; font-size:1.4rem; color:#6b7280; margin-bottom:1rem;">
             Không tìm thấy sản phẩm phù hợp.
         </p>
+
+        <!-- Thanh sort theo giá -->
+        <div class="products-toolbar">
+            <label for="price-sort">Sắp xếp theo giá:</label>
+            <select id="price-sort">
+                <option value="default">Mặc định</option>
+                <option value="price-asc">Giá tăng dần</option>
+                <option value="price-desc">Giá giảm dần</option>
+            </select>
+        </div>
 
         <div class="product-grid">
 
@@ -609,6 +619,8 @@
             </article>
 
         </div>
+        <!-- Thanh phân trang -->
+        <div id="home-pagination" class="home-pagination"></div>
     </section>
 
     <!-- FOOTER CHUNG -->
@@ -646,7 +658,7 @@
 
     <!-- PAGE JS -->
     <script src="../js/cart.js"></script>
-    <script src="../js/home.js"></script>
+    <script src="../js/index.js"></script>
     <script src="../js/user.js"></script>
     <script src="../js/search.js"></script>
 </body>

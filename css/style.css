@@ -343,24 +343,21 @@ span {
     gap: 1.8rem;
 }
 
-/* Khung banner */
+/* Khung banner – chiều cao tự theo ảnh */
 .hero-banner {
     border-radius: 18px;
     overflow: hidden;
     background: #fff;
     box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
     width: 100%;
-    aspect-ratio: 16 / 5;
-    /* cao / thấp tuỳ chỉnh */
 }
 
-/* Ảnh trong banner luôn full khung */
+/* Ảnh trong banner – luôn hiển thị đủ, không cắt */
 .hero-banner img,
-.hero-banner .slide img {
+.hero-banner .hero-slide img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* hoặc contain nếu muốn thấy đủ banner */
+    height: auto;
+    object-fit: contain;
     display: block;
 }
 
@@ -482,6 +479,24 @@ span {
     color: #777;
 }
 
+/* Thanh sort trên home (nếu dùng) */
+.products-section .products-toolbar {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.4rem;
+}
+
+.products-section .products-toolbar select {
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    font-size: 1.3rem;
+    background: #fff;
+}
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -490,6 +505,8 @@ span {
 
 /* Card sản phẩm */
 .product-card {
+    position: relative;
+    /* cho badge FLASH DEAL bám theo card */
     background: #ffffff;
     border-radius: 1.6rem;
     overflow: hidden;
@@ -498,18 +515,27 @@ span {
     flex-direction: column;
 }
 
+/* Khung chứa ảnh: cố định tỷ lệ & canh giữa */
 .product-image-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 3 / 4;
-    overflow: hidden;
-    background: #ffffff;
     padding: 0.4rem;
+    /* giảm padding cho ảnh sát hơn */
+    background: #ffffff;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    /* mọi card cùng chiều cao ảnh */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Ảnh tự co giãn trong khung, không méo */
 .product-image {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
     object-fit: contain;
 }
 
@@ -523,7 +549,8 @@ span {
 }
 
 .product-info {
-    padding: 1.4rem 1.6rem 1.6rem;
+    padding: 0.8rem 1.6rem 1.6rem;
+    /* giảm padding-top để FLASH DEAL sát ảnh hơn */
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
@@ -576,6 +603,61 @@ span {
     display: flex;
     gap: 0.8rem;
     margin-top: 0.8rem;
+}
+
+/* Badge FLASH DEAL góc trái trên card */
+.product-card.flash::before {
+    content: "FLASH DEAL";
+    position: absolute;
+    top: 1.2rem;
+    left: 1.4rem;
+    padding: 0.3rem 1.2rem;
+    background: #ff7a00;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.2rem;
+    border-radius: 999px;
+    z-index: 3;
+}
+
+/* Thanh FLASH DEAL dưới ảnh – khoảng cách nhỏ hơn */
+.product-card .flash-bar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.2rem;
+    /* trước 0.6 → sát ảnh hơn */
+    padding: 0.3rem 1.2rem;
+    border-radius: 999px;
+    background: #ff7a00;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+/* Pagination dưới lưới sản phẩm (home) */
+.home-pagination {
+    margin-top: 1.6rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.home-pagination .page-btn {
+    min-width: 32px;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    cursor: pointer;
+    font-size: 1.3rem;
+}
+
+.home-pagination .page-btn.active {
+    background: #00a651;
+    color: #ffffff;
+    border-color: #00a651;
+    font-weight: 600;
 }
 
 /* ==========================
@@ -783,113 +865,6 @@ span {
 
     .products-section {
         padding: 1rem 1.6rem 2.6rem;
-    }
-}
-
-/* < 768px */
-@media (max-width: 768px) {
-    html {
-        font-size: 55%;
-    }
-
-    .navbar .container {
-        flex-wrap: wrap;
-    }
-
-    .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .home-hero {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-banner {
-        aspect-ratio: 16 / 6;
-        /* cao hơn chút ở mobile */
-    }
-
-    .hero-brands {
-        margin-top: 1rem;
-    }
-
-    /* Giảm padding / chỉnh header & footer cho gọn */
-    .page {
-        padding: 1.6rem 1.4rem 2.4rem;
-    }
-
-    .top-promo-bar {
-        font-size: 1.2rem;
-        padding: 0.6rem 0;
-    }
-
-    .top-promo-bar .container {
-        padding: 0 1.4rem;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.3rem;
-    }
-
-    .top-promo-bar .left,
-    .top-promo-bar .right {
-        gap: 0.8rem;
-        flex-wrap: wrap;
-    }
-
-    .header-main {
-        padding: 0.8rem 1.4rem;
-        gap: 0.8rem;
-        flex-wrap: wrap;
-    }
-
-    .header-logo img {
-        height: 56px;
-    }
-
-    .header-tagline {
-        font-size: 1.2rem;
-        margin-top: 0.2rem;
-    }
-
-    .search-bar input {
-        font-size: 1.3rem;
-        padding: 0.9rem 1.2rem;
-    }
-
-    .header-right {
-        gap: 1rem;
-        font-size: 1.3rem;
-    }
-
-    .cart-button {
-        width: 3.4rem;
-        height: 3.4rem;
-        font-size: 1.6rem;
-    }
-
-    .cart-count {
-        width: 1.6rem;
-        height: 1.6rem;
-        font-size: 1rem;
-    }
-
-    .footer {
-        margin-top: 3rem;
-    }
-
-    .footer-container {
-        padding: 1.6rem 1.4rem 1.8rem;
-        grid-template-columns: 1fr;
-        gap: 1.4rem;
-    }
-
-    .footer-social {
-        justify-content: flex-start;
-    }
-
-    .footer-credit {
-        font-size: 1.2rem;
-        padding: 0.8rem 1.4rem 1.2rem;
     }
 }
 

@@ -30,11 +30,10 @@
     width: 56px;
     height: 56px;
     border-radius: 999px;
-    background: linear-gradient(135deg, #22c55e, #16a34a);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 20px rgba(22, 163, 74, 0.45);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
 }
 
 .profile-avatar img {

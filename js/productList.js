@@ -298,6 +298,97 @@ document.addEventListener('DOMContentLoaded', function () {
         }).join('');
     }
 
+    function renderSearchResults(keywordRaw) {
+        const keyword = (keywordRaw || "").trim().toLowerCase();
+
+        // Gom toàn bộ 24 sản phẩm vào 1 mảng phẳng
+        const allProducts = [];
+        Object.keys(productsByBrand).forEach(brandKey => {
+            const brandName = brandLabels[brandKey] || "";
+            const list = productsByBrand[brandKey] || [];
+            list.forEach((p, index) => {
+                allProducts.push({
+                    ...p,
+                    brandKey,
+                    brandName,
+                    detailUrl: `productDetails.html?brand=${brandKey}&index=${index + 1}`
+                });
+            });
+        });
+
+        let filtered = allProducts;
+        if (keyword) {
+            filtered = allProducts.filter(p =>
+                p.name.toLowerCase().includes(keyword) ||
+                (p.volume && p.volume.toLowerCase().includes(keyword))
+            );
+        }
+
+        // Bỏ highlight hãng khi đang xem kết quả search
+        brandCards.forEach(card => card.classList.remove('active'));
+
+        if (!filtered.length) {
+            titleEl.textContent = "Kết quả tìm kiếm";
+            subtitleEl.textContent = `Không tìm thấy sản phẩm phù hợp với "${keywordRaw}".`;
+            productsContainer.innerHTML = `
+                <p class="search-empty-note">
+                    Không có sản phẩm nào khớp với từ khóa "<strong>${keywordRaw}</strong>".
+                </p>
+            `;
+            return;
+        }
+
+        titleEl.textContent = "Kết quả tìm kiếm";
+        subtitleEl.textContent = `Tìm thấy ${filtered.length} sản phẩm cho "${keywordRaw}".`;
+
+        productsContainer.innerHTML = filtered.map(p => `
+            <article class="product-card flash">
+                <a class="product-link" href="${p.detailUrl}">
+                    <div class="product-image-wrapper">
+                        <img src="${p.image}" alt="${p.name}" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <div class="flash-bar">FLASH DEAL</div>
+                        <div class="product-price-row">
+                            <span class="current-price">${formatVND(p.price)}</span>
+                            <span class="old-price">${formatVND(p.oldPrice)}</span>
+                        </div>
+                        <div class="product-name">
+                            ${p.name}
+                        </div>
+                        <div class="product-meta">
+                            <span class="rating">${p.rating}</span>
+                            <span>|</span>
+                            <span class="volume">${p.volume}</span>
+                            <span>|</span>
+                            <span class="brand-name">${p.brandName}</span>
+                        </div>
+                    </div>
+                </a>
+                <div class="product-actions">
+                    <button class="btn btn-outline"
+                        data-add-to-cart
+                        data-product-id="${p.id}"
+                        data-name="${p.name}"
+                        data-brand="${p.brandName}"
+                        data-image="${p.image}"
+                        data-price="${p.price}">
+                        Thêm vào giỏ
+                    </button>
+                    <button class="btn"
+                        data-buy-now
+                        data-product-id="${p.id}"
+                        data-name="${p.name}"
+                        data-brand="${p.brandName}"
+                        data-image="${p.image}"
+                        data-price="${p.price}">
+                        Mua ngay
+                    </button>
+                </div>
+            </article>
+        `).join('');
+    }
+
     function setActiveBrandCard(brandKey) {
         brandCards.forEach(card => {
             if (card.dataset.brand === brandKey) {
@@ -314,6 +405,98 @@ document.addEventListener('DOMContentLoaded', function () {
         subtitleEl.textContent = `Các sản phẩm nổi bật của ${label}`;
     }
 
+    // TÌM KIẾM TRÊN TOÀN BỘ 24 SẢN PHẨM
+    window.applyProductListSearch = function (keywordRaw) {
+        const keyword = (keywordRaw || "").trim().toLowerCase();
+
+        if (!keyword) {
+            // Không có keyword -> quay lại brand đang chọn (hoặc mặc định cerave)
+            const params = new URLSearchParams(window.location.search);
+            let brandKey = params.get("brand") || "cerave";
+            if (!productsByBrand[brandKey]) brandKey = "cerave";
+
+            setActiveBrandCard(brandKey);
+            updateTitle(brandKey);
+            renderBrand(brandKey);
+            return;
+        }
+
+        // Gom toàn bộ 24 sp thành 1 mảng
+        const allProducts = [];
+        Object.keys(productsByBrand).forEach(brandKey => {
+            const brandName = brandLabels[brandKey] || "";
+            const list = productsByBrand[brandKey] || [];
+            list.forEach((p, index) => {
+                allProducts.push({
+                    ...p,
+                    brandKey,
+                    brandName,
+                    detailUrl: `productDetails.html?brand=${brandKey}&index=${index + 1}`
+                });
+            });
+        });
+
+        const filtered = allProducts.filter(p =>
+            p.name.toLowerCase().includes(keyword) ||
+            (p.volume && p.volume.toLowerCase().includes(keyword))
+        );
+
+        if (!filtered.length) {
+            titleEl.textContent = "Kết quả tìm kiếm";
+            subtitleEl.textContent = `Không tìm thấy sản phẩm phù hợp với "${keywordRaw}".`;
+            productsContainer.innerHTML = "";
+            return;
+        }
+
+        titleEl.textContent = "Kết quả tìm kiếm";
+        subtitleEl.textContent = `Tìm thấy ${filtered.length} sản phẩm cho "${keywordRaw}".`;
+
+        productsContainer.innerHTML = filtered.map(p => `
+            <article class="product-card flash">
+                <a class="product-link" href="${p.detailUrl}">
+                    <div class="product-image-wrapper">
+                        <img src="${p.image}" alt="${p.name}" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <div class="flash-bar">FLASH DEAL</div>
+                        <div class="product-price-row">
+                            <span class="current-price">${formatVND(p.price)}</span>
+                            <span class="old-price">${formatVND(p.oldPrice)}</span>
+                        </div>
+                        <div class="product-name">${p.name}</div>
+                        <div class="product-meta">
+                            <span class="rating">${p.rating || ""}</span>
+                            <span>|</span>
+                            <span class="volume">${p.volume || ""}</span>
+                            <span>|</span>
+                            <span class="brand-name">${p.brandName}</span>
+                        </div>
+                    </div>
+                </a>
+                <div class="product-actions">
+                    <button class="btn btn-outline"
+                        data-add-to-cart
+                        data-product-id="${p.id}"
+                        data-name="${p.name}"
+                        data-brand="${p.brandName}"
+                        data-image="${p.image}"
+                        data-price="${p.price}">
+                        Thêm vào giỏ
+                    </button>
+                    <button class="btn"
+                        data-buy-now
+                        data-product-id="${p.id}"
+                        data-name="${p.name}"
+                        data-brand="${p.brandName}"
+                        data-image="${p.image}"
+                        data-price="${p.price}">
+                        Mua ngay
+                    </button>
+                </div>
+            </article>
+        `).join('');
+    };
+
     // Click vào logo brand
     brandCards.forEach(card => {
         card.addEventListener('click', () => {
@@ -325,9 +508,15 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Load brand từ query ?brand=... hoặc mặc định cerave
     (function init() {
         const params = new URLSearchParams(window.location.search);
+        const keywordParam = (params.get('keyword') || "").trim();
+
+        if (keywordParam) {
+            renderSearchResults(keywordParam);
+            return;
+        }
+
         let brandKey = params.get('brand') || 'cerave';
         if (!productsByBrand[brandKey]) brandKey = 'cerave';
 
