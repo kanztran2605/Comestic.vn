@@ -1,11 +1,12 @@
 /* css/shoppingCart.css */
-/* CSS riêng cho trang giỏ hàng (nếu cần override gì đó) */
+/* CSS riêng cho trang giỏ hàng */
 
+/* ===== TITLE ===== */
 .cart-page h1 {
     margin-bottom: 1.5rem;
 }
 
-/* Cụm số lượng: nút +/- + input */
+/* ===== CỤM SỐ LƯỢNG (PC + MOBILE) ===== */
 .cart-qty-control {
     display: inline-flex;
     align-items: center;
@@ -46,11 +47,13 @@
     margin: 0;
 }
 
+/* Giá niêm yết phía trong cột sản phẩm – ẩn trên PC
+   (PC chỉ dùng cột Giá ở bảng) */
 .cart-product-price {
     display: none;
 }
 
-/* Cho cột sản phẩm rộng hơn để tên đỡ bị chẻ nhỏ */
+/* Cho cột sản phẩm rộng hơn để tên đỡ bị chẻ nhỏ trên PC */
 .cart-table {
     table-layout: fixed;
 }
@@ -69,6 +72,12 @@
 .cart-table th:nth-child(5),
 .cart-table td:nth-child(5) {
     width: 15%;
+}
+
+/* Thành tiền: đỏ, nổi bật (PC + mobile) */
+td[data-item-total] {
+    color: #e53935;
+    font-weight: 700;
 }
 
 /* ===== EMPTY CART ===== */
@@ -103,7 +112,6 @@
     font-size: 2.2rem;
     font-weight: 700;
     color: #f59e0b;
-    /* vàng cam cho giống icon */
     margin-bottom: 6px;
 }
 
@@ -120,6 +128,13 @@
     border-radius: 999px;
 }
 
+/* Hai nút dưới: luôn cùng 1 hàng (PC + mobile) */
+.cart-summary>div:last-child {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: nowrap;
+}
+
 /* =========================
    MOBILE LAYOUT CHO GIỎ HÀNG
    ========================= */
@@ -133,7 +148,7 @@
     /* Mỗi sản phẩm là 1 card, có khoảng cách */
     .cart-table {
         width: 100%;
-        border-collapse: separate;
+        border-collapse: separate !important;
         border-spacing: 0 14px;
         /* khoảng cách giữa các card */
     }
@@ -148,6 +163,8 @@
         border-radius: 18px;
         box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
         padding: 10px 14px 12px;
+        margin-bottom: 14px;
+        /* phòng khi browser không dùng border-spacing */
     }
 
     .cart-table td {
@@ -161,7 +178,7 @@
         grid-area: product;
     }
 
-    /* Ẩn cột giá niêm yết dạng bảng -> mobile chỉ còn 1 giá */
+    /* Ẩn cột Giá của bảng -> mobile chỉ còn 1 giá đen + 1 giá đỏ */
     .cart-table td:nth-child(2) {
         display: none;
     }
@@ -185,9 +202,9 @@
         text-align: right;
     }
 
-    /* Bên trong ô sản phẩm: ảnh trái, chữ phải (1 block ngang như ảnh 2) */
+    /* Bên trong ô sản phẩm: ảnh trái, text phải (kiểu ảnh 2) */
     .cart-product-info {
-        display: flex;
+        display: flex !important;
         gap: 10px;
         align-items: flex-start;
     }
@@ -200,36 +217,44 @@
     }
 
     .cart-product-text {
-        flex: 1;
+        flex: 1 1 auto;
         min-width: 0;
-        /* để text không bị bó lại, xuống dòng từng chữ */
+        /* cho text dùng hết chiều ngang */
+        word-break: normal;
+        white-space: normal;
     }
 
-    /* 1 dòng tên (tất nhiên dài thì tự xuống dòng, nhưng là một khối ngang) */
+    /* Tên: là một block ngang – dài thì tự xuống dòng, không còn kiểu từng chữ 1 dòng */
     .cart-product-name {
+        display: block;
+        width: 100%;
         font-size: 1.45rem;
         font-weight: 600;
         line-height: 1.35;
         margin-bottom: 2px;
+        word-break: normal !important;
+        white-space: normal !important;
     }
 
-    /* 1 dòng hãng */
+    /* Hãng: 1 dòng riêng */
     .cart-product-brand {
+        display: block;
         font-size: 1.3rem;
         color: #6b7280;
         margin-bottom: 2px;
+        word-break: normal;
     }
 
-    /* 1 dòng giá niêm yết – màu đen */
+    /* Giá niêm yết – 1 dòng riêng, màu đen */
     .cart-product-price {
-        display: block;
-        /* override display:none phía trên */
+        display: block !important;
+        /* override display:none trên PC */
         font-size: 1.4rem;
         font-weight: 600;
         color: #111827;
     }
 
-    /* Thành tiền: màu đỏ nổi bật */
+    /* Thành tiền (cột 4) đã set màu đỏ ở trên, chỉ tinh chỉnh thêm cho mobile */
     .cart-table td[data-item-total] {
         font-size: 1.4rem;
         font-weight: 700;
@@ -267,17 +292,4 @@
         text-align: center;
         padding: 0.9rem 0;
     }
-}
-
-/* Hai nút luôn cùng 1 hàng trên PC + mobile */
-.cart-summary>div:last-child {
-    display: flex;
-    gap: 0.8rem;
-    flex-wrap: nowrap;
-}
-
-/* Thành tiền: đỏ, nổi bật (PC + mobile) */
-td[data-item-total] {
-    color: #e53935;
-    font-weight: 700;
 }
