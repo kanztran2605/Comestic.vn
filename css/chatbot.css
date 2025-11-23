@@ -168,42 +168,61 @@
 /* Mobile tweak */
 @media (max-width: 576px) {
 
-    /* Thu nhỏ vị trí container xuống một chút, tránh sát mép quá */
+    /* Đưa container sát góc nhưng vẫn cách nhẹ */
     .ai-chatbot-container {
         right: 10px;
         bottom: 10px;
     }
 
-    /* Nút tròn nhỏ lại xíu cho đỡ lấn màn hình */
+    /* Nút mở chat nhỏ lại */
     .ai-chatbot-button {
-        width: 46px;
-        height: 46px;
+        width: 44px;
+        height: 44px;
     }
 
-    /* Khung chat chiếm gần full chiều ngang nhưng không quá to,
-       chiều cao khoảng 50% chiều cao màn hình cho đỡ "bự" */
+    /* Khung chat: nhỏ nhắn, không full màn hình nữa */
     .ai-chatbot-window {
-        width: calc(100vw - 20px);
-        /* chừa mỗi bên 10px */
-        max-width: none;
-        height: 50vh;
-        /* thấp hơn 60vh trước đó */
+        /* rộng tối đa 280px, nhưng nếu màn nhỏ quá thì chiếm 90% chiều ngang */
+        width: min(280px, 90vw);
+        max-width: 280px;
+
+        /* cao tối đa 340px hoặc 50% chiều cao màn hình, cái nào nhỏ hơn */
+        height: min(340px, 50vh);
+
         border-radius: 14px;
     }
 
-    /* Chữ nhỏ lại một chút cho dễ nhìn trên màn nhỏ */
+    /* Chữ trong phần messages nhỏ lại xíu cho đỡ bí */
     .ai-chatbot-messages {
-        font-size: 12px;
+        font-size: 1.2rem;
+        /* ~12px (vì html đang 62.5%) */
         padding: 8px 10px;
     }
 
+    .ai-chatbot-header {
+        padding: 8px 10px;
+    }
+
+    .ai-chatbot-header-title {
+        font-size: 1.3rem;
+    }
+
+    .ai-chatbot-header-sub {
+        font-size: 1.1rem;
+    }
+
+    .ai-chatbot-input-area {
+        padding: 6px 8px;
+        gap: 4px;
+    }
+
     .ai-chatbot-input-area input {
-        font-size: 12px;
-        padding: 6px 10px;
+        font-size: 1.2rem;
+        padding: 5px 9px;
     }
 
     .ai-chatbot-input-area button {
-        font-size: 12px;
+        font-size: 1.2rem;
         padding: 5px 10px;
     }
 }
