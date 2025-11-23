@@ -5,10 +5,66 @@
     margin-bottom: 1.5rem;
 }
 
+/* Cụm số lượng: nút +/- + input */
+.cart-qty-control {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.cart-qty-btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.cart-qty-btn:active {
+    background: #f3f4f6;
+}
+
 .cart-qty-input {
-    width: 60px;
-    padding: 0.4rem 0.6rem;
-    font-size: 1.3rem;
+    width: 56px;
+    padding: 0.3rem 0;
+    border: none;
+    text-align: center;
+    font-size: 1.4rem;
+    appearance: textfield;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.cart-qty-input::-webkit-outer-spin-button,
+.cart-qty-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Cho cột sản phẩm rộng hơn để tên đỡ bị chẻ nhỏ */
+.cart-table {
+    table-layout: fixed;
+}
+
+.cart-table th:nth-child(1),
+.cart-table td:nth-child(1) {
+    width: 40%;
+}
+
+.cart-table th:nth-child(2),
+.cart-table td:nth-child(2),
+.cart-table th:nth-child(3),
+.cart-table td:nth-child(3),
+.cart-table th:nth-child(4),
+.cart-table td:nth-child(4),
+.cart-table th:nth-child(5),
+.cart-table td:nth-child(5) {
+    width: 15%;
 }
 
 /* ===== EMPTY CART ===== */
@@ -60,19 +116,127 @@
     border-radius: 999px;
 }
 
-/* cho mobile */
-@media (max-width: 600px) {
-    .empty-cart-inner {
-        margin-top: 24px;
-        padding: 24px 16px 28px;
+/* ===== MOBILE LAYOUT CHO GIỎ HÀNG ===== */
+@media (max-width: 768px) {
+
+    .cart-table thead {
+        display: none;
     }
 
-    .empty-cart-icon {
-        width: 130px;
-        height: 130px;
+    .cart-table {
+        border-collapse: separate;
+        border-spacing: 0 12px;
     }
 
-    .empty-cart-title {
-        font-size: 2rem;
+    .cart-table tbody tr {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-areas:
+            "product product product product"
+            "price   qty     total   remove";
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+        padding: 8px 10px;
+    }
+
+    .cart-table td {
+        border-bottom: none;
+        padding: 0.4rem 0.6rem;
+        font-size: 1.35rem;
+    }
+
+    /* Dòng 1: ảnh + tên + brand full width */
+    .cart-table td:nth-child(1) {
+        grid-area: product;
+    }
+
+    /* Dòng 2: Giá | Số lượng | Thành tiền | Xóa */
+    .cart-table td:nth-child(2) {
+        grid-area: price;
+    }
+
+    .cart-table td:nth-child(3) {
+        grid-area: qty;
+    }
+
+    .cart-table td:nth-child(4) {
+        grid-area: total;
+        text-align: right;
+        font-weight: 600;
+    }
+
+    .cart-table td:nth-child(5) {
+        grid-area: remove;
+        text-align: right;
+    }
+
+    .cart-product-info img {
+        width: 64px;
+        height: 64px;
+        object-fit: contain;
+    }
+
+    .cart-product-name {
+        font-size: 1.4rem;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+
+    .cart-product-brand {
+        font-size: 1.25rem;
+        color: #6b7280;
+    }
+
+    /* Cụm nút số lượng to hơn tí cho dễ bấm */
+    .cart-qty-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 1.8rem;
+    }
+
+    .cart-qty-input {
+        width: 60px;
+        font-size: 1.5rem;
+    }
+
+    /* Tổng tiền + 2 nút ở dưới gọn gàng */
+    .cart-summary {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+    .cart-summary>div:last-child {
+        width: 100%;
+        display: flex;
+        gap: 0.8rem;
+    }
+
+    .cart-summary>div:last-child .btn {
+        flex: 1;
+        text-align: center;
+        padding: 0.9rem 0;
+    }
+}
+
+/* Hai nút luôn nằm cùng một hàng (PC + mobile) */
+.cart-summary>div:last-child {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: nowrap;
+}
+
+@media (max-width: 768px) {
+    .cart-summary>div:last-child {
+        width: 100%;
+        display: flex;
+        gap: 0.8rem;
+    }
+
+    .cart-summary>div:last-child .btn {
+        flex: 1;
+        text-align: center;
+        padding: 0.9rem 0;
     }
 }

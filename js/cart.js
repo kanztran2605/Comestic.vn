@@ -163,24 +163,32 @@ function renderCartPageIfNeeded() {
                     <div class="cart-product-info">
                         <img src="${item.image}" alt="${item.name}">
                         <div>
-                            <div>${item.name}</div>
+                            <div class="cart-product-name">${item.name}</div>
                             <div class="cart-product-brand">${item.brand}</div>
                         </div>
                     </div>
                 </td>
+
                 <td>${formatCurrencyNumber(item.price)}</td>
+
                 <td>
-                    <input 
-                        type="number" 
-                        min="1" 
-                        value="${item.qty}" 
-                        class="cart-qty-input"
-                        data-qty-id="${item.id}"
-                    >
+                    <div class="cart-qty-control">
+                        <button class="cart-qty-btn" data-qty-minus="${item.id}">−</button>
+                        <input 
+                            type="number" 
+                            min="1" 
+                            value="${item.qty}" 
+                            class="cart-qty-input"
+                            data-qty-id="${item.id}"
+                        >
+                        <button class="cart-qty-btn" data-qty-plus="${item.id}">+</button>
+                    </div>
                 </td>
+
                 <td data-item-total="${item.id}">
                     ${formatCurrencyNumber(lineTotal)}
                 </td>
+
                 <td>
                     <button class="btn btn-outline" data-remove-id="${item.id}">
                         Xóa
@@ -194,6 +202,22 @@ function renderCartPageIfNeeded() {
         tbody.innerHTML = html;
     }
     updateCartTotalDisplay();
+}
+
+// Tăng / giảm số lượng bằng nút +/- rồi tái sử dụng logic ở sự kiện 'input'
+function adjustCartQty(id, delta) {
+    const input = document.querySelector(`input[data-qty-id="${id}"]`);
+    if (!input) return;
+
+    let qty = parseInt(input.value, 10) || 1;
+    qty += delta;
+    if (qty < 1) qty = 1;
+
+    input.value = qty;
+
+    // Trig lại sự kiện 'input' để cập nhật cart + tổng tiền
+    const evt = new Event('input', { bubbles: true });
+    input.dispatchEvent(evt);
 }
 
 // ---- Event delegation chung cho toàn site ----
@@ -224,6 +248,22 @@ document.addEventListener('click', function (e) {
     if (buyBtn) {
         e.preventDefault();
         addToCartFromButton(buyBtn, { qty: 1, redirectToCheckout: true });
+        return;
+    }
+
+    // 3.1. Giảm số lượng
+    const minusBtn = e.target.closest('[data-qty-minus]');
+    if (minusBtn) {
+        e.preventDefault();
+        adjustCartQty(minusBtn.dataset.qtyMinus, -1);
+        return;
+    }
+
+    // 3.2. Tăng số lượng
+    const plusBtn = e.target.closest('[data-qty-plus]');
+    if (plusBtn) {
+        e.preventDefault();
+        adjustCartQty(plusBtn.dataset.qtyPlus, 1);
         return;
     }
 

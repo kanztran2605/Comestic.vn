@@ -32,22 +32,33 @@ function renderCartPage() {
                         <img src="${item.image}" alt="${item.name}">
                         <div>
                             <div class="cart-product-name">${item.name}</div>
-                            <div style="font-size:1.2rem;color:#777;">${item.brand}</div>
+                            <div class="cart-product-brand">${item.brand}</div>
                         </div>
                     </div>
                 </td>
-                <td>${formatCurrency(item.price)}</td>
+
+                <td>${formatCurrencyNumber(item.price)}</td>
+
                 <td>
-                    <input type="number"
-                           class="cart-qty-input"
-                           min="1"
-                           value="${item.quantity}"
-                           data-product-id="${item.id}">
+                    <div class="cart-qty-control">
+                        <button class="cart-qty-btn" data-qty-minus="${item.id}">−</button>
+                        <input 
+                            type="number" 
+                            min="1" 
+                            value="${item.qty}" 
+                            class="cart-qty-input"
+                            data-qty-id="${item.id}"
+                        >
+                        <button class="cart-qty-btn" data-qty-plus="${item.id}">+</button>
+                    </div>
                 </td>
-                <td>${formatCurrency(lineTotal)}</td>
+
+                <td data-item-total="${item.id}">
+                    ${formatCurrencyNumber(lineTotal)}
+                </td>
+
                 <td>
-                    <button class="btn btn-outline cart-remove-btn"
-                            data-product-id="${item.id}">
+                    <button class="btn btn-outline" data-remove-id="${item.id}">
                         Xóa
                     </button>
                 </td>
