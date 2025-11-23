@@ -46,6 +46,10 @@
     margin: 0;
 }
 
+.cart-product-price {
+    display: none;
+}
+
 /* Cho cột sản phẩm rộng hơn để tên đỡ bị chẻ nhỏ */
 .cart-table {
     table-layout: fixed;
@@ -116,31 +120,34 @@
     border-radius: 999px;
 }
 
-/* ===== MOBILE LAYOUT CHO GIỎ HÀNG ===== */
+/* =========================
+   MOBILE LAYOUT CHO GIỎ HÀNG
+   ========================= */
 @media (max-width: 768px) {
 
+    /* Ẩn header bảng */
     .cart-table thead {
         display: none;
     }
 
+    /* Mỗi sản phẩm là 1 card, có khoảng cách */
     .cart-table {
+        width: 100%;
         border-collapse: separate;
-        border-spacing: 0 18px;
-        /* tăng khoảng cách giữa các card */
+        border-spacing: 0 14px;
+        /* khoảng giữa các card */
     }
 
     .cart-table tbody tr {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: 1.3fr 0.7fr 0.6fr;
         grid-template-areas:
-            "product product product product"
-            "price   qty     total   remove";
+            "product product product"
+            "qty     total   remove";
         background: #ffffff;
-        border-radius: 16px;
-        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
-        padding: 10px 12px;
-        margin-bottom: 4px;
-        /* thêm chút margin cho chắc kèo */
+        border-radius: 18px;
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+        padding: 10px 14px 12px;
     }
 
     .cart-table td {
@@ -149,43 +156,38 @@
         font-size: 1.35rem;
     }
 
-    /* Hàng 1: ảnh + TÊN + HÃNG (full width) */
+    /* Hàng 1: Ảnh + Tên + Hãng + Giá niêm yết */
     .cart-table td:nth-child(1) {
-        order: 1;
-        width: 100%;
+        grid-area: product;
     }
 
-    /* Hàng 2: GIÁ (full width, dưới hãng) */
+    /* Ẩn cột giá niêm yết dạng bảng – để tránh bị “2 giá” trên mobile */
     .cart-table td:nth-child(2) {
-        order: 2;
-        width: 100%;
-        font-weight: 600;
-        color: #e53935;
+        display: none;
     }
 
-    /* Hàng 3: SỐ LƯỢNG | THÀNH TIỀN | XÓA (cùng 1 hàng) */
+    /* Hàng 2: Số lượng – Thành tiền – Xóa */
     .cart-table td:nth-child(3) {
-        order: 3;
-        width: 45%;
+        grid-area: qty;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
     }
 
     .cart-table td:nth-child(4) {
-        order: 3;
-        width: 35%;
+        grid-area: total;
         text-align: right;
-        font-weight: 600;
     }
 
     .cart-table td:nth-child(5) {
-        order: 3;
-        width: 20%;
+        grid-area: remove;
         text-align: right;
     }
 
-    /* Cụm ảnh + text sản phẩm */
+    /* Layout trong cột sản phẩm */
     .cart-product-info {
         display: flex;
-        gap: 0.8rem;
+        gap: 10px;
         align-items: flex-start;
     }
 
@@ -197,18 +199,35 @@
     }
 
     .cart-product-name {
-        font-size: 1.4rem;
+        font-size: 1.45rem;
         font-weight: 600;
         line-height: 1.4;
         margin-bottom: 2px;
     }
 
     .cart-product-brand {
-        font-size: 1.25rem;
+        font-size: 1.3rem;
         color: #6b7280;
+        margin-bottom: 2px;
     }
 
-    /* Số lượng: nút +/- + input */
+    /* Giá niêm yết: màu đen, nằm ngay dưới hãng */
+    .cart-product-price {
+        display: block;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #111827;
+    }
+
+    /* Thành tiền: màu đỏ, nằm ở hàng dưới cạnh số lượng */
+    .cart-table td[data-item-total] {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #e53935;
+        white-space: nowrap;
+    }
+
+    /* Cụm số lượng: to hơn tí cho dễ bấm */
     .cart-qty-btn {
         width: 32px;
         height: 32px;
@@ -220,7 +239,7 @@
         font-size: 1.5rem;
     }
 
-    /* Tổng tiền + 2 nút dưới vẫn gọn gàng */
+    /* 2 nút dưới: luôn 1 hàng, full width */
     .cart-summary {
         flex-direction: column;
         align-items: flex-start;
@@ -231,7 +250,6 @@
         width: 100%;
         display: flex;
         gap: 0.8rem;
-        flex-wrap: nowrap;
     }
 
     .cart-summary>div:last-child .btn {
@@ -239,6 +257,13 @@
         text-align: center;
         padding: 0.9rem 0;
     }
+}
+
+/* Hai nút luôn cùng 1 hàng trên PC + mobile */
+.cart-summary>div:last-child {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: nowrap;
 }
 
 /* Thành tiền: đỏ, nổi bật */
