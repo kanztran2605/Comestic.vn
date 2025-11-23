@@ -5,9 +5,9 @@
     margin-bottom: 1.5rem;
 }
 
-/* ===== CỤM SẢN PHẨM TRONG BẢNG (PC + MOBILE) ===== */
+/* ===== CỤM SẢN PHẨM (PC + MOBILE) ===== */
 
-/* Ô chứa ảnh + text: luôn nằm ngang */
+/* Ô chứa ảnh + text: nằm ngang */
 .cart-product-info {
     display: flex;
     gap: 12px;
@@ -21,9 +21,22 @@
     flex-shrink: 0;
 }
 
+/* Khối text bên phải hình */
 .cart-product-text {
+    display: flex;
+    flex-direction: column;
     flex: 1;
     min-width: 0;
+}
+
+/* 3 dòng chữ: tên – hãng – giá */
+.cart-product-name,
+.cart-product-brand,
+.cart-product-price {
+    display: block;
+    white-space: normal;
+    word-break: break-word;
+    margin: 0;
 }
 
 /* Tên sản phẩm */
@@ -41,7 +54,7 @@
     margin-bottom: 2px;
 }
 
-/* Giá niêm yết (hiển thị trong block text) */
+/* Giá niêm yết (trong block text) */
 .cart-product-price {
     display: none;
     /* PC ẩn, mobile sẽ bật lại */
@@ -88,7 +101,7 @@
     margin: 0;
 }
 
-/* Cho cột sản phẩm rộng hơn để tên đỡ bị chẻ nhỏ trên PC */
+/* Bảng: cho cột sản phẩm rộng hơn trên PC */
 .cart-table {
     table-layout: fixed;
 }
@@ -193,12 +206,12 @@
         font-size: 1.35rem;
     }
 
-    /* Hàng 1: Ảnh + tên + hãng + giá niêm yết (chiếm full width) */
+    /* Hàng 1: Ảnh + tên + hãng + giá niêm yết (full width) */
     .cart-table td:nth-child(1) {
         grid-area: product;
     }
 
-    /* Ẩn cột giá niêm yết dạng bảng -> mobile chỉ còn 1 giá */
+    /* Ẩn cột giá bảng -> mobile chỉ còn 1 giá */
     .cart-table td:nth-child(2) {
         display: none;
     }
@@ -222,24 +235,23 @@
         text-align: right;
     }
 
-    /* Bên trong ô sản phẩm: ảnh trái, chữ phải (như ảnh 2) */
-    .cart-product-info {
-        display: flex;
-        gap: 10px;
-        align-items: flex-start;
-    }
-
+    /* Ảnh nhỏ lại cho mobile */
     .cart-product-info img {
         width: 64px;
         height: 64px;
     }
 
-    .cart-product-text {
-        flex: 1;
-        min-width: 0;
+    /* 3 dòng chữ: tên – hãng – giá */
+    .cart-product-name,
+    .cart-product-brand,
+    .cart-product-price {
+        display: block;
+        white-space: normal;
+        word-break: break-word;
+        margin: 0;
     }
 
-    /* 1 block tên – dài thì tự xuống nhưng không phải từng chữ */
+    /* Tên sản phẩm */
     .cart-product-name {
         font-size: 1.45rem;
         font-weight: 600;
@@ -247,14 +259,14 @@
         margin-bottom: 2px;
     }
 
-    /* 1 dòng hãng */
+    /* Hãng */
     .cart-product-brand {
         font-size: 1.3rem;
         color: #6b7280;
         margin-bottom: 2px;
     }
 
-    /* 1 dòng giá niêm yết – màu đen */
+    /* Giá niêm yết – màu đen */
     .cart-product-price {
         display: block;
         /* override display:none */
@@ -271,10 +283,10 @@
         white-space: nowrap;
     }
 
-    /* Cụm số lượng: to hơn cho dễ bấm + ép không bị bẹp */
+    /* Cụm số lượng: to hơn cho dễ bấm + tránh bị bẹp */
     .cart-qty-control {
         min-width: 120px;
-        /* QUAN TRỌNG: tránh bị thu hẹp chỉ còn nút '-' */
+        /* QUAN TRỌNG: tránh chỉ còn nút '-' */
         justify-content: space-between;
         padding: 0 8px;
     }
