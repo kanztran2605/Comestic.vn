@@ -1,0 +1,176 @@
+/* css/chatbot.css - style cho AI ChatBot */
+
+.ai-chatbot-container {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    font-family: inherit;
+}
+
+/* Nút tròn sticky */
+.ai-chatbot-button {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background-color: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.ai-chatbot-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+    background-color: #a3fff9;
+}
+
+.ai-chatbot-button img {
+    max-width: 60%;
+    max-height: 60%;
+}
+
+/* Khung chat */
+.ai-chatbot-window {
+    width: 320px;
+    max-width: calc(100vw - 32px);
+    height: 420px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.ai-chatbot-window.open {
+    display: flex;
+}
+
+/* Header */
+.ai-chatbot-header {
+    padding: 10px 14px;
+    background: linear-gradient(135deg, #ff6b81, #ff9a9e);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ai-chatbot-header-title {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.ai-chatbot-header-sub {
+    font-size: 11px;
+    opacity: 0.9;
+}
+
+.ai-chatbot-header-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.ai-chatbot-close {
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 4px;
+}
+
+/* Vùng messages */
+.ai-chatbot-messages {
+    flex: 1;
+    padding: 10px 12px;
+    overflow-y: auto;
+    background-color: #f7f8fc;
+    font-size: 13px;
+}
+
+/* Bubble chung */
+.ai-chatbot-message {
+    max-width: 85%;
+    padding: 8px 10px;
+    margin-bottom: 6px;
+    border-radius: 12px;
+    line-height: 1.4;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Bot */
+.ai-chatbot-message--bot {
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid #e0e0e0;
+    border-bottom-left-radius: 2px;
+}
+
+/* User */
+.ai-chatbot-message--user {
+    background-color: #ff6b81;
+    color: #ffffff;
+    margin-left: auto;
+    border-bottom-right-radius: 2px;
+}
+
+/* Ô nhập */
+.ai-chatbot-input-area {
+    padding: 8px 10px;
+    border-top: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #ffffff;
+}
+
+.ai-chatbot-input-area input {
+    flex: 1;
+    border-radius: 999px;
+    border: 1px solid #ddd;
+    padding: 6px 10px;
+    font-size: 13px;
+    outline: none;
+}
+
+.ai-chatbot-input-area input:focus {
+    border-color: #ff6b81;
+}
+
+.ai-chatbot-input-area button {
+    border-radius: 999px;
+    border: none;
+    padding: 6px 12px;
+    font-size: 13px;
+    background-color: #ff6b81;
+    color: #fff;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.ai-chatbot-input-area button:hover {
+    background-color: #ff4f6c;
+}
+
+/* Mobile tweak */
+@media (max-width: 576px) {
+    .ai-chatbot-window {
+        right: 8px;
+        bottom: 80px;
+        width: calc(100vw - 24px);
+        height: 60vh;
+    }
+}

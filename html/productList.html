@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/productList.css">
+    <link rel="stylesheet" href="../css/chatbot.css">
 </head>
 
 <body class="page-product-list">
@@ -166,6 +167,30 @@
         </div>
     </footer>
 
+    <!-- AI CHATBOT WIDGET -->
+    <div class="ai-chatbot-container">
+        <button class="ai-chatbot-button" aria-label="Mở AI ChatBot">
+            <img src="../images/icon/chatBot.png" alt="AI ChatBot">
+        </button>
+
+        <div class="ai-chatbot-window">
+            <div class="ai-chatbot-header">
+                <div class="ai-chatbot-header-left">
+                    <span class="ai-chatbot-header-title">Quẹt Mai ChatBot</span>
+                    <span class="ai-chatbot-header-sub">Hỏi giá & gợi ý sản phẩm</span>
+                </div>
+                <button class="ai-chatbot-close" aria-label="Đóng">&times;</button>
+            </div>
+
+            <div class="ai-chatbot-messages"></div>
+
+            <form id="ai-chatbot-form" class="ai-chatbot-input-area">
+                <input type="text" id="ai-chatbot-input" placeholder="Nhập câu hỏi của bạn..." autocomplete="off">
+                <button type="submit">Gửi</button>
+            </form>
+        </div>
+    </div>
+
     <!-- JS LIBS -->
     <script src="../js/jquery-3.6.4.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
@@ -176,6 +201,7 @@
     <script src="../js/productList.js"></script>
     <script src="../js/user.js"></script>
     <script src="../js/search.js"></script>
+    <script src="../js/chatbot.js"></script>
 </body>
 
 </html>
