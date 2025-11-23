@@ -167,10 +167,43 @@
 
 /* Mobile tweak */
 @media (max-width: 576px) {
+
+    /* Thu nhỏ vị trí container xuống một chút, tránh sát mép quá */
+    .ai-chatbot-container {
+        right: 10px;
+        bottom: 10px;
+    }
+
+    /* Nút tròn nhỏ lại xíu cho đỡ lấn màn hình */
+    .ai-chatbot-button {
+        width: 46px;
+        height: 46px;
+    }
+
+    /* Khung chat chiếm gần full chiều ngang nhưng không quá to,
+       chiều cao khoảng 50% chiều cao màn hình cho đỡ "bự" */
     .ai-chatbot-window {
-        right: 8px;
-        bottom: 80px;
-        width: calc(100vw - 24px);
-        height: 60vh;
+        width: calc(100vw - 20px);
+        /* chừa mỗi bên 10px */
+        max-width: none;
+        height: 50vh;
+        /* thấp hơn 60vh trước đó */
+        border-radius: 14px;
+    }
+
+    /* Chữ nhỏ lại một chút cho dễ nhìn trên màn nhỏ */
+    .ai-chatbot-messages {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    .ai-chatbot-input-area input {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    .ai-chatbot-input-area button {
+        font-size: 12px;
+        padding: 5px 10px;
     }
 }
