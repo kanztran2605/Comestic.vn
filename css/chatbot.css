@@ -14,19 +14,17 @@
 
 /* Nút tròn sticky */
 .ai-chatbot-button {
-    width: 56px;
-    height: 56px;
+    width: 72px;
+    height: 72px;
     border-radius: 50%;
-    border: none;
     outline: none;
-    background-color: #ffffff;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0;
-    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
 .ai-chatbot-button:hover {
@@ -36,21 +34,55 @@
 }
 
 .ai-chatbot-button img {
-    max-width: 60%;
-    max-height: 60%;
+    max-width: 70%;
+    max-height: 70%;
 }
 
 /* Khung chat */
+/* Khung chat */
 .ai-chatbot-window {
+    position: relative;
     width: 320px;
     max-width: calc(100vw - 32px);
     height: 420px;
-    background-color: #ffffff;
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     display: none;
     flex-direction: column;
     overflow: hidden;
+    background-color: #e7231a;
+}
+
+/* Hover cho hợp nền đỏ vàng */
+.ai-chatbot-button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+    background: linear-gradient(135deg, #ffb347, #ffe082);
+    /* cam -> vàng */
+}
+
+/* Nền áo Quagmire mờ mờ phía sau */
+/* Nền áo Quagmire phía sau */
+.ai-chatbot-window::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../images/Banner/Quagmire.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+/* Mọi thứ bên trong nổi lên trên nền */
+.ai-chatbot-header,
+.ai-chatbot-messages,
+.ai-chatbot-input-area {
+    position: relative;
+    z-index: 1;
 }
 
 .ai-chatbot-window.open {
@@ -60,7 +92,8 @@
 /* Header */
 .ai-chatbot-header {
     padding: 10px 14px;
-    background: linear-gradient(135deg, #ff6b81, #ff9a9e);
+    background: linear-gradient(135deg, #e7231a, #ffb347);
+    /* đỏ → cam */
     color: #fff;
     display: flex;
     align-items: center;
@@ -96,8 +129,41 @@
     flex: 1;
     padding: 10px 12px;
     overflow-y: auto;
-    background-color: #f7f8fc;
     font-size: 13px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    background-color: transparent;
+}
+
+/* Scrollbar cho vùng chat (Firefox) */
+.ai-chatbot-messages {
+    scrollbar-width: thin;
+    scrollbar-color: #ffb347 rgba(0, 0, 0, 0.18);
+    /* thumb | track */
+}
+
+/* Scrollbar cho vùng chat (Chrome, Edge, Safari...) */
+.ai-chatbot-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.ai-chatbot-messages::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.18);
+    border-radius: 999px;
+}
+
+.ai-chatbot-messages::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #ffd447, #ff4f6c);
+    /* vàng → hồng */
+    border-radius: 999px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.35);
+}
+
+.ai-chatbot-messages::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #ffe082, #ff6b81);
 }
 
 /* Bubble chung */
@@ -113,56 +179,63 @@
 
 /* Bot */
 .ai-chatbot-message--bot {
-    background-color: #ffffff;
-    color: #333;
-    border: 1px solid #e0e0e0;
+    background-color: rgba(255, 244, 199, 0.96);
+    color: #4a240e;
+    border: 1px solid #f3c853;
     border-bottom-left-radius: 2px;
 }
 
 /* User */
 .ai-chatbot-message--user {
-    background-color: #ff6b81;
+    background: linear-gradient(135deg, #ff4f6c, #ff8a5c);
     color: #ffffff;
-    margin-left: auto;
+    align-self: flex-end;
     border-bottom-right-radius: 2px;
+    border: 1px solid #f3c853(255, 255, 255, 0.7);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
 }
 
 /* Ô nhập */
 .ai-chatbot-input-area {
     padding: 8px 10px;
-    border-top: 1px solid #eee;
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
     display: flex;
     align-items: center;
     gap: 6px;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .ai-chatbot-input-area input {
     flex: 1;
     border-radius: 999px;
-    border: 1px solid #ddd;
+    border: 1px solid #f3c853;
+    /* vàng */
     padding: 6px 10px;
     font-size: 13px;
     outline: none;
 }
 
 .ai-chatbot-input-area input:focus {
-    border-color: #ff6b81;
+    border-color: #e7231a;
+    /* đỏ khi focus */
 }
 
 .ai-chatbot-input-area button {
     border-radius: 999px;
-    border: none;
-    padding: 6px 12px;
+    border: 1px solid #f3c853;
+    padding: 6px 16px;
     font-size: 13px;
-    background-color: #ff6b81;
-    color: #fff;
+    background-color: #ffd447;
+    color: #e7231a;
     cursor: pointer;
     white-space: nowrap;
+    font-weight: 600;
 }
 
 .ai-chatbot-input-area button:hover {
-    background-color: #ff4f6c;
+    background-color: #ffe97a;
+    border-color: #ff9800;
+    color: #b3261e;
 }
 
 /* Mobile tweak */
@@ -173,8 +246,8 @@
     }
 
     .ai-chatbot-button {
-        width: 44px;
-        height: 44px;
+        width: 56px;
+        height: 56px;
     }
 
     .ai-chatbot-window {

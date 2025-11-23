@@ -68,19 +68,33 @@
         <div class="auth-card">
             <h1>Đăng ký tài khoản</h1>
             <form id="signup-form">
-                <label for="signup-fullname">Họ và tên</label>
+                <label for="signup-fullname">
+                    Họ và tên <span class="required">*</span>
+                </label>
                 <input id="signup-fullname" type="text" placeholder="Nguyễn Văn A" required>
 
-                <label for="signup-phone">Số điện thoại *</label>
+                <label for="signup-phone">
+                    Số điện thoại <span class="required">*</span>
+                </label>
                 <input id="signup-phone" type="tel" placeholder="0123 456 789" required>
 
                 <label for="signup-email">Email</label>
                 <input id="signup-email" type="email" placeholder="email@domain.com">
 
-                <label for="signup-password">Mật khẩu</label>
-                <input id="signup-password" type="password" placeholder="Tối thiểu 6 ký tự" required>
+                <label for="signup-password">
+                    Mật khẩu <span class="required">*</span>
+                </label>
+                <input id="signup-password" type="password" placeholder="Ít nhất 8 ký tự" required>
 
-                <label for="signup-confirm">Nhập lại mật khẩu</label>
+                <small class="input-hint">
+                    Mật khẩu phải có ít nhất <strong>8 ký tự</strong>, bao gồm
+                    <strong>chữ hoa, chữ thường, số và ký tự đặc biệt</strong>.
+                    Không nên trùng với số điện thoại.
+                </small>
+
+                <label for="signup-confirm">
+                    Nhập lại mật khẩu <span class="required">*</span>
+                </label>
                 <input id="signup-confirm" type="password" placeholder="Nhập lại mật khẩu" required>
 
                 <button type="submit" class="btn" style="margin-top:0.5rem;">

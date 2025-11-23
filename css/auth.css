@@ -74,3 +74,22 @@
 .auth-card p a:hover {
     text-decoration: underline;
 }
+
+.auth-card .input-hint {
+    display: block;
+    margin-top: 0.2rem;
+    margin-bottom: 1.2rem;
+    font-size: 1.25rem;
+    background: #fffbeb;
+    border-left: 3px solid #f97316;
+    padding: 0.6rem 0.9rem;
+    border-radius: 0.8rem;
+    color: #92400e;
+    line-height: 1.45;
+}
+
+.auth-card form label .required {
+    color: #ef4444;
+    /* đỏ tươi */
+    margin-left: 0.1rem;
+}
