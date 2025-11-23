@@ -765,6 +765,23 @@ span {
     color: #ffffff;
 }
 
+/* Footer: toàn bộ text và link đều trắng */
+.footer,
+.footer p,
+.footer h3,
+.footer-credit,
+.footer a {
+    color: #ffffff;
+}
+
+.footer a {
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
 /* ==========================
    HEADER USER AVATAR + DROPDOWN
    ========================== */
@@ -879,38 +896,71 @@ span {
     }
 
     .header-main {
-        flex-direction: column;
-        align-items: stretch;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
         padding: 0.8rem 1.2rem;
     }
 
     .header-logo {
+        flex: 0 0 100%;
         justify-content: center;
+        margin-bottom: 0.4rem;
     }
 
     .header-center {
         order: 2;
-        width: 100%;
+        flex: 1 1 auto;
+        width: auto;
+    }
+
+    .header-right {
+        order: 2;
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-left: 0.8rem;
+        width: auto;
     }
 
     .header-tagline {
         display: none;
-        /* ẩn tagline cho đỡ chật */
     }
 
-    .header-right {
-        order: 3;
-        width: 100%;
-        justify-content: flex-end;
+    .header-right .auth-link {
+        font-size: 1.2rem;
+        white-space: nowrap;
     }
 
     .search-bar {
-        margin-top: 0.4rem;
+        margin-top: 0;
     }
 
     .search-bar input {
         font-size: 1.25rem;
         padding: 0.85rem 1.1rem;
+    }
+
+    .product-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.6rem;
+        padding: 10px 12px 14px;
+    }
+
+    .product-actions .btn,
+    .product-actions .btn-outline {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        padding: 0.9rem 1.2rem;
+    }
+
+    /* FOOTER mobile */
+    .footer-container {
+        padding: 1.4rem 1.2rem 1.8rem;
     }
 
     .footer-col {
@@ -919,9 +969,5 @@ span {
 
     .footer-social {
         justify-content: center;
-    }
-
-    .footer-container {
-        padding: 1.4rem 1.2rem 1.8rem;
     }
 }
