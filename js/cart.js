@@ -162,11 +162,10 @@ function renderCartPageIfNeeded() {
                 <td>
                     <div class="cart-product-info">
                         <img src="${item.image}" alt="${item.name}">
-                        <div>
+                        <div class="cart-product-text">
                             <div class="cart-product-name">${item.name}</div>
                             <div class="cart-product-brand">${item.brand}</div>
-                            <!-- Giá niêm yết – chỉ hiện trên mobile -->
-                            <div class="cart-product-price-mobile">
+                            <div class="cart-product-price">
                                 ${formatCurrencyNumber(item.price)}
                             </div>
                         </div>
@@ -177,7 +176,7 @@ function renderCartPageIfNeeded() {
                 </td>
                 <td>
                     <div class="cart-qty-control">
-                        <button class="cart-qty-btn" data-qty-minus="${item.id}">-</button>
+                        <button class="cart-qty-btn" data-qty-minus="${item.id}">−</button>
                         <input 
                             type="number" 
                             min="1" 
