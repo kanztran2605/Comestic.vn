@@ -7,13 +7,14 @@
     padding: 2rem;
 }
 
+/* Layout 2 cột: trái ảnh, phải thông tin */
 .product-detail-layout {
     display: grid;
     grid-template-columns: 1.4fr 1.8fr;
     gap: 2rem;
 }
 
-/* Cột trái: 3 ảnh */
+/* Cột trái: ảnh sản phẩm */
 .product-detail-images {
     background: #fff;
     padding: 1.5rem;
@@ -21,6 +22,7 @@
     box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, .05);
 }
 
+/* Ảnh chính */
 .product-detail-main {
     border-radius: 0.8rem;
     border: 1px solid #eee;
@@ -34,6 +36,7 @@
     object-fit: contain;
 }
 
+/* Ảnh nhỏ bên dưới */
 .product-detail-thumbs {
     display: flex;
     gap: 1rem;
@@ -106,56 +109,46 @@
     margin-bottom: 1.5rem;
 }
 
-/* Gợi ý sản phẩm bên dưới */
+/* ==========================
+   SẢN PHẨM LIÊN QUAN
+   ========================== */
 .related-section {
     margin-top: 3rem;
 }
 
-/* GRID 4 CỘT CHO SẢN PHẨM LIÊN QUAN Ở TRANG CHI TIẾT */
-.related-section .product-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-/* Responsive cho layout + related */
-@media (max-width: 991px) {
-    .product-detail-layout {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .related-section .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 500px) {
-    .related-section .product-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ===== CARD SẢN PHẨM LIÊN QUAN (giống home/productList) ===== */
-
+/* Grid giống index/productList:
+   - Desktop: 4 cột
+   - Tablet + Mobile: 2 cột
+*/
 .related-section .product-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1.6rem;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
+    .product-detail-layout {
+        grid-template-columns: 1fr;
+    }
+
     .related-section .product-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
+/* Mobile nhỏ vẫn giữ 2 cột cho giống home/productList */
 @media (max-width: 600px) {
     .related-section .product-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-.product-card {
+/* ==========================
+   CARD SẢN PHẨM LIÊN QUAN
+   (scope trong .related-section thôi)
+   ========================== */
+
+.related-section .product-card {
     position: relative;
     background: #fff;
     border-radius: 16px;
@@ -166,37 +159,37 @@
     transition: transform .2s ease, box-shadow .2s ease;
 }
 
-.product-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
-}
-
 /* toàn bộ card clickable */
-.product-link {
+.related-section .product-link {
     display: block;
     text-decoration: none;
     color: inherit;
 }
 
+.related-section .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
+}
+
 /* ảnh + giảm khoảng trắng trên/dưới */
-.product-image-wrapper {
+.related-section .product-image-wrapper {
     position: relative;
     padding: 12px 12px 8px;
 }
 
-.product-card .product-image {
+.related-section .product-card .product-image {
     display: block;
     width: 100%;
     border-radius: 12px;
     transition: transform .25s ease;
 }
 
-.product-card:hover .product-image {
+.related-section .product-card:hover .product-image {
     transform: scale(1.03);
 }
 
-/* FLASH DEAL góc trái – bản to hơn */
-.product-card.flash::before {
+/* FLASH DEAL góc trái – giống home/list */
+.related-section .product-card.flash::before {
     content: "FLASH DEAL";
     position: absolute;
     top: 12px;
@@ -212,8 +205,7 @@
 }
 
 /* Thanh FLASH DEAL dưới ảnh */
-.product-card .flash-bar {
-    margin: 8px 16px 4px;
+.related-section .product-card .flash-bar {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -226,18 +218,18 @@
 }
 
 /* text + giá */
-.product-info {
+.related-section .product-info {
     padding: 0 16px 10px;
 }
 
-.product-price-row {
+.related-section .product-price-row {
     margin-top: 4px;
     display: flex;
     align-items: baseline;
     gap: 8px;
 }
 
-.product-name {
+.related-section .product-name {
     margin-top: 4px;
     font-size: 1.35rem;
     font-weight: 600;
@@ -245,7 +237,7 @@
     color: #111827;
 }
 
-.product-meta {
+.related-section .product-meta {
     margin-top: 4px;
     font-size: 1.25rem;
     color: #6b7280;

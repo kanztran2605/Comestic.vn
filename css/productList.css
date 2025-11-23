@@ -1,12 +1,10 @@
-/* BRAND CARD ACTIVE TRONG PRODUCTLIST */
+/* ===== BRAND CARD ACTIVE TRONG PRODUCTLIST ===== */
 .brand-card.active {
     border: 1.5px solid #00a651;
     box-shadow: 0 0 0 1px rgba(0, 166, 81, 0.12);
 }
 
-/* ==== BRAND SECTION TRONG PRODUCTLIST ==== */
-/* Section chứa logo các hãng nên mình gắn class="products-section brand-section" ở HTML */
-
+/* ===== BRAND SECTION (4 logo hãng ở trên cùng) ===== */
 .brand-section .product-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1.6rem;
@@ -16,6 +14,7 @@
     border-radius: 1.2rem;
     box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
     overflow: hidden;
+    background: #ffffff;
 }
 
 .brand-card .product-image-wrapper {
@@ -46,70 +45,7 @@
     margin-top: 0.6rem;
 }
 
-/* Responsive cho brand grid */
-@media (max-width: 768px) {
-    .brand-section .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 500px) {
-    .brand-section .product-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* CARD CHUNG – bớt khoảng trắng trên/dưới + đẹp hơn */
-.product-card {
-    display: flex;
-    flex-direction: column;
-    padding: 12px 12px 16px;
-    /* ít padding hơn => bớt trắng */
-    border-radius: 16px;
-    background: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Hover card: nhấc lên + đổ bóng + phóng nhẹ ảnh */
-.product-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-}
-
-.product-image-wrapper {
-    position: relative;
-    border-radius: 14px;
-    overflow: hidden;
-    margin-bottom: 8px;
-    /* sát hơn với FLASH DEAL */
-}
-
-.product-image {
-    display: block;
-    width: 100%;
-    height: auto;
-    transition: transform 0.25s ease;
-}
-
-.product-card:hover .product-image {
-    transform: scale(1.03);
-}
-
-/* Badge SALE (nếu bạn đang dùng) */
-.sale-badge {
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    width: 48px;
-    height: auto;
-}
-
-/* ==== CARD SẢN PHẨM CHUNG (HOME + PRODUCT LIST) ==== */
-
-/* ==== CARD SẢN PHẨM CHUNG (HOME + PRODUCT LIST) ==== */
+/* ===== CARD SẢN PHẨM CHUNG (HOME + PRODUCT LIST) ===== */
 
 .product-card {
     position: relative;
@@ -207,4 +143,51 @@
     justify-content: center;
     gap: 12px;
     padding: 10px 16px 16px;
+}
+
+/* ===== RESPONSIVE CHO BRAND GRID ===== */
+
+/* Tablet & mobile: cho brand thành 1 hàng cuộn ngang, nhỏ gọn hơn */
+@media (max-width: 768px) {
+
+    .brand-section {
+        padding: 1.2rem 1.4rem 1.6rem;
+    }
+
+    .brand-section .product-grid {
+        display: grid;
+        grid-auto-flow: column;
+        /* xếp theo cột, 1 hàng ngang */
+        grid-auto-columns: minmax(120px, 1fr);
+        /* mỗi card rộng tối thiểu 120px */
+        grid-template-columns: unset;
+        /* bỏ repeat(4,...) ở trên */
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 1rem;
+    }
+
+    .brand-card {
+        min-width: 120px;
+    }
+
+    .brand-card .product-image-wrapper {
+        aspect-ratio: 1 / 1;
+        padding: 1rem;
+    }
+
+    .brand-card .product-name {
+        font-size: 1.3rem;
+    }
+
+    .brand-card .product-actions {
+        margin-top: 0.4rem;
+    }
+}
+
+/* Mobile nhỏ: ưu tiên logo + tên, ẩn nút "Xem sản phẩm" để card thấp hơn */
+@media (max-width: 480px) {
+    .brand-card .product-actions {
+        display: none;
+    }
 }

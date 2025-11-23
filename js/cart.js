@@ -26,6 +26,18 @@ function formatCurrencyNumber(num) {
     return num.toLocaleString('vi-VN') + 'đ';
 }
 
+// --- LOGIN HELPER DÙNG CHUNG CHO CART / MUA NGAY ---
+
+function requireLoginForCartActions() {
+    const currentUserJSON = localStorage.getItem('currentUser');
+    if (!currentUserJSON) {
+        alert('Bạn cần đăng nhập để thêm vào giỏ hoặc mua hàng.');
+        window.location.href = 'login.html';
+        return false;
+    }
+    return true;
+}
+
 // Cho các file khác dùng luôn
 window.parsePriceNumber = function (str) {
     return Number((str || '').replace(/\D/g, '')) || 0;
@@ -49,6 +61,8 @@ function addToCartFromButton(btn, options = {}) {
         redirectToCheckout = false,
         qty = 1
     } = options;
+
+    if (!requireLoginForCartActions()) return;
 
     const id = btn.dataset.productId;
     if (!id) return;
