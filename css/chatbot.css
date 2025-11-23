@@ -167,48 +167,26 @@
 
 /* Mobile tweak */
 @media (max-width: 576px) {
-
-    /* Đưa container sát góc nhưng vẫn cách nhẹ */
     .ai-chatbot-container {
         right: 10px;
         bottom: 10px;
     }
 
-    /* Nút mở chat nhỏ lại */
     .ai-chatbot-button {
         width: 44px;
         height: 44px;
     }
 
-    /* Khung chat: nhỏ nhắn, không full màn hình nữa */
     .ai-chatbot-window {
-        /* rộng tối đa 280px, nhưng nếu màn nhỏ quá thì chiếm 90% chiều ngang */
         width: min(280px, 90vw);
         max-width: 280px;
-
-        /* cao tối đa 340px hoặc 50% chiều cao màn hình, cái nào nhỏ hơn */
         height: min(340px, 50vh);
-
         border-radius: 14px;
     }
 
-    /* Chữ trong phần messages nhỏ lại xíu cho đỡ bí */
     .ai-chatbot-messages {
         font-size: 1.2rem;
-        /* ~12px (vì html đang 62.5%) */
         padding: 8px 10px;
-    }
-
-    .ai-chatbot-header {
-        padding: 8px 10px;
-    }
-
-    .ai-chatbot-header-title {
-        font-size: 1.3rem;
-    }
-
-    .ai-chatbot-header-sub {
-        font-size: 1.1rem;
     }
 
     .ai-chatbot-input-area {
@@ -216,8 +194,9 @@
         gap: 4px;
     }
 
+    /* QUAN TRỌNG: font-size >= 16px để iOS không zoom */
     .ai-chatbot-input-area input {
-        font-size: 1.2rem;
+        font-size: 16px;
         padding: 5px 9px;
     }
 
