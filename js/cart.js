@@ -165,15 +165,19 @@ function renderCartPageIfNeeded() {
                         <div>
                             <div class="cart-product-name">${item.name}</div>
                             <div class="cart-product-brand">${item.brand}</div>
+                            <!-- Giá niêm yết – chỉ hiện trên mobile -->
+                            <div class="cart-product-price-mobile">
+                                ${formatCurrencyNumber(item.price)}
+                            </div>
                         </div>
                     </div>
                 </td>
-
-                <td>${formatCurrencyNumber(item.price)}</td>
-
+                <td class="cart-unit-price">
+                    ${formatCurrencyNumber(item.price)}
+                </td>
                 <td>
                     <div class="cart-qty-control">
-                        <button class="cart-qty-btn" data-qty-minus="${item.id}">−</button>
+                        <button class="cart-qty-btn" data-qty-minus="${item.id}">-</button>
                         <input 
                             type="number" 
                             min="1" 
@@ -184,11 +188,9 @@ function renderCartPageIfNeeded() {
                         <button class="cart-qty-btn" data-qty-plus="${item.id}">+</button>
                     </div>
                 </td>
-
                 <td data-item-total="${item.id}">
                     ${formatCurrencyNumber(lineTotal)}
                 </td>
-
                 <td>
                     <button class="btn btn-outline" data-remove-id="${item.id}">
                         Xóa

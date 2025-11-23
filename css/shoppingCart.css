@@ -119,25 +119,28 @@
 /* ===== MOBILE LAYOUT CHO GIỎ HÀNG ===== */
 @media (max-width: 768px) {
 
-    /* Ẩn header bảng */
     .cart-table thead {
         display: none;
     }
 
     .cart-table {
         border-collapse: separate;
-        border-spacing: 0 12px;
-        width: 100%;
+        border-spacing: 0 18px;
+        /* tăng khoảng cách giữa các card */
     }
 
-    /* Mỗi sản phẩm = 1 card, flex + wrap */
     .cart-table tbody tr {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-areas:
+            "product product product product"
+            "price   qty     total   remove";
         background: #ffffff;
         border-radius: 16px;
         box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
-        padding: 8px 10px;
+        padding: 10px 12px;
+        margin-bottom: 4px;
+        /* thêm chút margin cho chắc kèo */
     }
 
     .cart-table td {
@@ -236,4 +239,17 @@
         text-align: center;
         padding: 0.9rem 0;
     }
+}
+
+/* Thành tiền: đỏ, nổi bật */
+td[data-item-total] {
+    color: #e53935;
+    font-weight: 700;
+}
+
+/* Giá niêm yết: đen / xám đậm */
+.cart-unit-price,
+.cart-product-price-mobile {
+    color: #111827;
+    font-weight: 600;
 }
