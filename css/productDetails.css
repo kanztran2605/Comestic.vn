@@ -265,3 +265,21 @@
     align-items: center;
     gap: 6px;
 }
+
+/* MOBILE: card sản phẩm liên quan */
+@media (max-width: 768px) {
+
+    .related-section .product-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.4rem;
+    }
+
+    .related-section .product-card .product-image-wrapper {
+        padding: 24px 10px 12px;
+        aspect-ratio: 3 / 4;
+    }
+
+    .related-section .product-card .flash-bar {
+        margin-top: 8px;
+    }
+}

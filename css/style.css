@@ -1058,3 +1058,15 @@ span {
         justify-content: center;
     }
 }
+
+@media (max-width: 768px) {
+
+    .products-section .product-image-wrapper {
+        padding: 24px 10px 12px;
+        aspect-ratio: 3 / 4;
+    }
+
+    .products-section .product-card .flash-bar {
+        margin: 8px 1.2rem 8px;
+    }
+}
