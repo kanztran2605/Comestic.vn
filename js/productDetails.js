@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "490.000đ",
                 volume: "473ml",
                 rating: "★ 4.8",
-                desc: "Sữa rửa mặt tạo bọt nhẹ, làm sạch sâu cho da thường đến da dầu, không làm khô căng da."
+                desc: "Chi tiết sản phẩm: Sữa rửa mặt dạng gel tạo bọt nhẹ, làm sạch sâu bụi bẩn và bã nhờn nhưng vẫn giữ độ ẩm tự nhiên, cho da khô thoáng mà không căng rít. | Nhãn hàng: CeraVe – thương hiệu dược mỹ phẩm được nhiều bác sĩ da liễu khuyên dùng. | Thể tích: 473ml, phù hợp sử dụng sáng tối trong thời gian dài. | Thành phần: Ceramide, Niacinamide, Hyaluronic Acid, hệ chất làm sạch dịu nhẹ, không chứa hương liệu. | Công dụng: Giúp làm sạch sâu, hỗ trợ cải thiện độ mịn màng bề mặt da, giảm bóng dầu và tăng cường hàng rào bảo vệ da."
             },
             {
                 name: "Kem Dưỡng CeraVe Cho Da Khô Đến Rất Khô 340g",
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "450.000đ",
                 volume: "340g",
                 rating: "★ 4.9",
-                desc: "Kem dưỡng phục hồi hàng rào bảo vệ da, cấp ẩm lâu dài cho da khô đến rất khô."
+                desc: "Chi tiết sản phẩm: Kem dưỡng kết cấu dày nhưng thấm nhanh, mang lại cảm giác ẩm mượt, dễ chịu cho làn da khô và rất khô. | Nhãn hàng: CeraVe – dòng chăm sóc da chuyên biệt cho da nhạy cảm và da khô. | Thể tích: 340g dạng hũ lớn, có thể dùng cho mặt và toàn thân. | Thành phần: Ceramide 1-3-6II, Glycerin, Hyaluronic Acid, không chứa hương liệu. | Công dụng: Hỗ trợ phục hồi hàng rào bảo vệ da, cấp ẩm bền vững, giảm tình trạng khô ráp, bong tróc, cho da mềm mịn hơn."
             },
             {
                 name: "Sữa Rửa Mặt CeraVe Cho Da Dầu Mụn 236ml",
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "370.000đ",
                 volume: "236ml",
                 rating: "★ 5.0",
-                desc: "Sữa rửa mặt chứa BHA hỗ trợ làm sạch lỗ chân lông, phù hợp da dầu mụn."
+                desc: "Chi tiết sản phẩm: Sữa rửa mặt dành cho da dầu mụn với khả năng làm sạch sâu, mang lại cảm giác thông thoáng sau khi rửa. | Nhãn hàng: CeraVe – thương hiệu nổi tiếng với công thức dịu nhẹ, an toàn cho da. | Thể tích: 236ml tiện dụng cho chăm sóc da hằng ngày. | Thành phần: Salicylic Acid (BHA), Ceramide, Niacinamide, chất làm sạch dịu nhẹ. | Công dụng: Hỗ trợ làm sạch lỗ chân lông, giảm bã nhờn dư thừa, góp phần hạn chế hình thành mụn và giúp bề mặt da trông mịn màng hơn."
             },
             {
                 name: "Kem Dưỡng CeraVe Dạng Gel Kiềm Dầu Cho Da Dầu & Hỗn Hợp 52ml",
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "370.000đ",
                 volume: "52ml",
                 rating: "★ 4.8",
-                desc: "Kết cấu gel mỏng nhẹ, thấm nhanh, giúp kiềm dầu và giữ ẩm cho da suốt nhiều giờ."
+                desc: "Chi tiết sản phẩm: Kem dưỡng dạng gel mỏng nhẹ, thấm nhanh, không nhờn dính, mang lại cảm giác khô thoáng dễ chịu trên da. | Nhãn hàng: CeraVe – giải pháp cấp ẩm nhưng vẫn thoáng cho da dầu. | Thể tích: 52ml nhỏ gọn, dễ mang theo khi di chuyển. | Thành phần: Ceramide, Niacinamide, Hyaluronic Acid, thành phần hỗ trợ kiểm soát dầu. | Công dụng: Giúp cân bằng ẩm, hỗ trợ kiềm dầu, giảm bóng nhờn vùng chữ T, cho làn da mềm mịn nhưng không bí tắc."
             },
             {
                 name: "Sữa Rửa Mặt CeraVe Cho Da Thường Đến Khô 88ml",
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "160.000đ",
                 volume: "88ml",
                 rating: "★ 4.7",
-                desc: "Phiên bản nhỏ gọn, dịu nhẹ cho da thường đến khô, giúp da mềm mịn sau khi rửa."
+                desc: "Chi tiết sản phẩm: Sữa rửa mặt dịu nhẹ, tạo bọt mềm mịn, phù hợp cho làn da thường đến khô, kể cả da nhạy cảm. | Nhãn hàng: CeraVe – dược mỹ phẩm chăm sóc da được tin dùng toàn cầu. | Thể tích: 88ml mini, tiện mang theo khi đi làm, đi học, du lịch. | Thành phần: Ceramide, Hyaluronic Acid, Amino Acid, không chứa hương liệu. | Công dụng: Hỗ trợ làm sạch bụi bẩn, mồ hôi trên da, đồng thời giúp duy trì độ ẩm, hạn chế cảm giác căng khô sau khi rửa mặt."
             },
             {
                 name: "Sữa Rửa Mặt CeraVe Cho Da Thường Đến Khô 236ml",
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "330.000đ",
                 volume: "236ml",
                 rating: "★ 4.9",
-                desc: "Sữa rửa mặt dịu nhẹ, bổ sung ceramide và HA, phù hợp cho da thường đến khô."
+                desc: "Chi tiết sản phẩm: Phiên bản dung tích lớn của sữa rửa mặt dịu nhẹ chuyên dùng cho da thường đến khô. | Nhãn hàng: CeraVe – công thức nghiên cứu cùng chuyên gia da liễu. | Thể tích: 236ml dùng được trong thời gian dài. | Thành phần: Ceramide, Hyaluronic Acid, Glycerin giúp hỗ trợ dưỡng ẩm trong lúc làm sạch. | Công dụng: Giúp loại bỏ bụi bẩn nhẹ nhàng, hỗ trợ làm mềm bề mặt da, mang lại làn da ẩm mượt, dễ chịu sau khi rửa."
             }
         ],
         loreal: [
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "239.000đ",
                 volume: "400ml",
                 rating: "★ 4.7",
-                desc: "Tẩy trang làm sạch nhẹ nhàng, mang lại cảm giác tươi mát cho da dầu và hỗn hợp."
+                desc: "Chi tiết sản phẩm: Nước tẩy trang micellar giúp làm sạch lớp kem chống nắng, bụi bẩn và trang điểm nhẹ một cách nhanh chóng, mang lại cảm giác tươi mát. | Nhãn hàng: L'Oréal Paris – thương hiệu chăm sóc sắc đẹp hàng đầu thế giới. | Thể tích: 400ml, dùng được lâu cho cả sáng và tối. | Thành phần: Hạt micellar, chiết xuất bạc hà, glycerin, không chứa dầu khoáng nặng. | Công dụng: Giúp làm sạch da, hỗ trợ giảm cảm giác nhờn dính, cho bề mặt da khô thoáng và sẵn sàng cho các bước dưỡng tiếp theo."
             },
             {
                 name: "Nước Tẩy Trang L'Oreal Làm Sạch Sâu Cho Da Dầu 400ml",
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "279.000đ",
                 volume: "400ml",
                 rating: "★ 4.8",
-                desc: "Khả năng làm sạch sâu bụi bẩn và lớp trang điểm, phù hợp da dầu."
+                desc: "Chi tiết sản phẩm: Nước tẩy trang làm sạch sâu, phù hợp cho làn da thường xuyên tiếp xúc với môi trường ô nhiễm hoặc trang điểm. | Nhãn hàng: L'Oréal Paris – chuyên gia trong lĩnh vực làm sạch và chăm sóc da. | Thể tích: 400ml đáp ứng nhu cầu sử dụng hằng ngày. | Thành phần: Công nghệ Micellar, glycerin, thành phần hỗ trợ làm sạch lớp trang điểm lâu trôi. | Công dụng: Giúp cuốn trôi bụi bẩn, bã nhờn và cặn trang điểm, mang lại bề mặt da sạch sẽ, thông thoáng hơn."
             },
             {
                 name: "Nước Tẩy Trang L'Oreal Căng Mịn Da 400ml",
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "279.000đ",
                 volume: "400ml",
                 rating: "★ 4.9",
-                desc: "Tẩy trang dịu nhẹ giúp làn da mịn màng, ẩm mượt sau khi sử dụng."
+                desc: "Chi tiết sản phẩm: Nước tẩy trang dịu nhẹ, ưu tiên cảm giác ẩm mượt, căng mịn sau khi lau. | Nhãn hàng: L'Oréal Paris – kết hợp giữa công nghệ làm sạch và dưỡng da. | Thể tích: 400ml phù hợp dùng lâu dài. | Thành phần: Micellar water, glycerin, vitamin B3 và các thành phần dưỡng ẩm. | Công dụng: Hỗ trợ làm sạch lớp trang điểm và bụi bẩn, đồng thời giúp làn da trông mềm mại, ẩm mượt, hạn chế cảm giác khô căng."
             },
             {
                 name: "Nước Tẩy Trang L'Oreal Làm Sạch Sâu Trang Điểm 400ml",
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "279.000đ",
                 volume: "400ml",
                 rating: "★ 4.8",
-                desc: "Làm sạch tốt lớp trang điểm đậm, không gây khô da."
+                desc: "Chi tiết sản phẩm: Nước tẩy trang dành cho trang điểm đậm, mascara chống trôi và son lì khó trôi. | Nhãn hàng: L'Oréal Paris – thương hiệu trang điểm và chăm sóc da uy tín. | Thể tích: 400ml, lý tưởng cho những ai trang điểm thường xuyên. | Thành phần: Micellar water, dầu làm sạch nhẹ, glycerin. | Công dụng: Giúp hòa tan nhanh lớp trang điểm cứng đầu, hỗ trợ làm sạch da mà vẫn giữ lại độ ẩm, cho da mềm mại hơn sau khi lau."
             },
             {
                 name: "Kem Chống Nắng L'Oreal X20 Thoáng Da Mỏng Nhẹ 50ml",
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "399.000đ",
                 volume: "50ml",
                 rating: "★ 4.9",
-                desc: "Kem chống nắng mỏng nhẹ, thấm nhanh, giúp bảo vệ da tối ưu dưới nắng gắt."
+                desc: "Chi tiết sản phẩm: Kem chống nắng kết cấu lỏng nhẹ, dễ tán, gần như không trọng lượng trên da. | Nhãn hàng: L'Oréal Paris – tiên phong trong công nghệ màng lọc chống nắng. | Thể tích: 50ml nhỏ gọn, dễ mang theo bên mình. | Thành phần: Màng lọc UVB/UVA, Niacinamide, Vitamin E, thành phần giúp kiểm soát dầu. | Công dụng: Hỗ trợ bảo vệ da trước tác động của ánh nắng, giúp bề mặt da khô thoáng, hạn chế bóng nhờn suốt ngày dài."
             },
             {
                 name: "Bộ Gội Xả L'Oreal Dưỡng Tóc Suôn Mượt Cao Cấp 440ml x 2",
@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "518.000đ",
                 volume: "Bộ 2 chai 440ml",
                 rating: "★ 4.8",
-                desc: "Bộ gội xả giúp tóc suôn mượt, mềm mại và dễ chải."
+                desc: "Chi tiết sản phẩm: Bộ gội xả chăm sóc tóc toàn diện, giúp làm sạch da đầu và dưỡng mềm thân tóc. | Nhãn hàng: L'Oréal Paris – chuyên gia chăm sóc tóc chuyên nghiệp. | Thể tích: Bộ 2 chai 440ml, dùng được cho cả gia đình. | Thành phần: Keratin, dầu argan, các thành phần dưỡng ẩm và làm mượt. | Công dụng: Giúp giảm tình trạng xơ rối, hỗ trợ phục hồi độ óng mượt, giúp tóc dễ chải và nhìn khỏe khoắn hơn."
             }
         ],
         vaseline: [
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "203.000đ",
                 volume: "300ml",
                 rating: "★ 4.7",
-                desc: "Serum dưỡng thể thấm nhanh, hỗ trợ chống nắng và làm sáng da cơ thể."
+                desc: "Chi tiết sản phẩm: Serum dưỡng thể kết cấu mỏng nhẹ, thấm nhanh, không nhờn dính, phù hợp khí hậu nóng ẩm. | Nhãn hàng: Vaseline – thương hiệu dưỡng ẩm lâu đời được yêu thích. | Thể tích: 300ml tiện dùng hằng ngày. | Thành phần: Niacinamide, Hyaluronic Acid, vitamin B3, Jelly dưỡng ẩm và thành phần chống nắng hỗ trợ. | Công dụng: Giúp dưỡng ẩm, hỗ trợ làm sáng da cơ thể, tạo cảm giác da mềm mịn, tươi tắn hơn khi sử dụng đều đặn."
             },
             {
                 name: "Sữa Dưỡng Thể Vaseline Gluta-Hya Nâng Tông Tức Thì 300ml",
@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "195.000đ",
                 volume: "300ml",
                 rating: "★ 4.8",
-                desc: "Dưỡng thể nâng tông tức thì, giúp làn da tươi sáng hơn sau khi dùng."
+                desc: "Chi tiết sản phẩm: Sữa dưỡng thể có hiệu ứng nâng tông nhẹ, tạo lớp nền da sáng hơn ngay sau khi thoa. | Nhãn hàng: Vaseline – chuyên gia trong lĩnh vực dưỡng thể. | Thể tích: 300ml phù hợp dùng mỗi ngày. | Thành phần: Glutathione, Hyaluronic Acid, Niacinamide, Jelly dưỡng ẩm. | Công dụng: Hỗ trợ làm đều màu da, giữ ẩm và mang lại cảm giác da sáng khỏe, rạng rỡ hơn theo thời gian."
             },
             {
                 name: "Sáp Dưỡng Môi Vaseline Hồng Xinh 7g",
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "82.000đ",
                 volume: "7g",
                 rating: "★ 5.0",
-                desc: "Sáp dưỡng môi giúp môi ẩm mịn, có sắc hồng tự nhiên."
+                desc: "Chi tiết sản phẩm: Sáp dưỡng môi nhỏ gọn, dễ mang theo, thích hợp dùng nhiều lần trong ngày. | Nhãn hàng: Vaseline – nổi tiếng với công nghệ Jelly dưỡng ẩm. | Thể tích: 7g dạng sáp. | Thành phần: Petroleum Jelly, vitamin E, sắc tố hồng nhẹ nhàng. | Công dụng: Giúp giảm khô nứt, dưỡng ẩm môi, tạo sắc hồng tự nhiên, hỗ trợ lớp son màu lên đều hơn."
             },
             {
                 name: "Combo 2 Sữa Dưỡng Thể Vaseline Sáng Da Chuyên Sâu Ban Đêm 300ml (Mới)",
@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "300.000đ",
                 volume: "Combo 2 chai 300ml",
                 rating: "★ 4.8",
-                desc: "Bộ đôi dưỡng thể ban đêm giúp phục hồi và dưỡng sáng da."
+                desc: "Chi tiết sản phẩm: Combo dưỡng thể dành cho ban đêm, kết cấu êm mượt, phù hợp thoa trước khi ngủ. | Nhãn hàng: Vaseline – dòng dưỡng sáng da cơ thể được nhiều người tin dùng. | Thể tích: 2 chai x 300ml. | Thành phần: Niacinamide, Vitamin C, Jelly dưỡng ẩm, các chất chống oxy hóa hỗ trợ. | Công dụng: Giúp nuôi dưỡng làn da trong lúc ngủ, hỗ trợ cải thiện độ sáng, giảm xỉn màu, cho da mềm mỏng hơn vào sáng hôm sau."
             },
             {
                 name: "Son Dưỡng Có Màu Vaseline Hồng Cam Êm Dịu 3g",
@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "99.000đ",
                 volume: "3g",
                 rating: "★ 4.9",
-                desc: "Son dưỡng có màu hồng cam nhẹ nhàng, làm mềm môi và có độ bóng vừa phải."
+                desc: "Chi tiết sản phẩm: Son dưỡng có màu với sắc hồng cam ngọt ngào, mang lại vẻ tươi tắn tự nhiên. | Nhãn hàng: Vaseline – thương hiệu dưỡng môi quen thuộc với mọi độ tuổi. | Thể tích: 3g dạng thỏi nhỏ gọn. | Thành phần: Petroleum Jelly, dầu dưỡng, sắc tố hồng cam. | Công dụng: Giúp dưỡng ẩm, làm mềm môi, tạo lớp bóng nhẹ và sắc màu trẻ trung phù hợp dùng hằng ngày."
             },
             {
                 name: "Sữa Dưỡng Thể Vaseline Sáng Da Tức Thì 320ml",
@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "143.000đ",
                 volume: "320ml",
                 rating: "★ 4.8",
-                desc: "Dưỡng thể làm sáng da tức thì, thích hợp dùng ban ngày."
+                desc: "Chi tiết sản phẩm: Sữa dưỡng thể có hiệu ứng sáng da tức thì, tạo bề mặt da đều màu hơn ngay khi thoa. | Nhãn hàng: Vaseline – chuyên gia dưỡng ẩm và chăm sóc da cơ thể. | Thể tích: 320ml phù hợp dùng ban ngày. | Thành phần: Niacinamide, Vitamin C, glycerin, Jelly dưỡng ẩm. | Công dụng: Giúp cấp ẩm, hỗ trợ cải thiện độ sáng và mịn màng của làn da, phù hợp dùng trước khi ra ngoài."
             }
         ],
         cocoon: [
@@ -261,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "590.000đ",
                 volume: "Combo 2 sản phẩm",
                 rating: "★ 4.9",
-                desc: "Combo làm sạch và cân bằng da, chiết xuất từ sen Hậu Giang và bí đao."
+                desc: "Chi tiết sản phẩm: Combo làm sạch và cân bằng da từ nguyên liệu thực vật Việt Nam, phù hợp chăm sóc da hằng ngày. | Nhãn hàng: Cocoon – thương hiệu thuần chay nội địa được yêu thích. | Thể tích: Nước cân bằng 310ml + nước tẩy trang 500ml. | Thành phần: Chiết xuất sen Hậu Giang, bí đao, glycerin, panthenol. | Công dụng: Giúp loại bỏ bụi bẩn, lớp trang điểm nhẹ, đồng thời hỗ trợ làm dịu và cân bằng bề mặt da."
             },
             {
                 name: "Bộ Gội Xả Bưởi Cocoon Không Sulfate Và Giảm Gãy Rụng 500ml + 310ml",
@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "560.000đ",
                 volume: "Combo gội xả",
                 rating: "★ 4.8",
-                desc: "Bộ gội xả bưởi giúp giảm gãy rụng và làm tóc chắc khỏe hơn."
+                desc: "Chi tiết sản phẩm: Bộ gội xả chiết xuất bưởi giúp làm sạch da đầu nhẹ nhàng và nuôi dưỡng sợi tóc. | Nhãn hàng: Cocoon – mỹ phẩm thuần chay lấy cảm hứng từ nông sản Việt. | Thể tích: Dầu gội 500ml + dầu xả 310ml. | Thành phần: Chiết xuất vỏ bưởi, biotin, provitamin B5, các dưỡng chất thực vật. | Công dụng: Hỗ trợ giảm gãy rụng, giúp tóc trông dày và khỏe hơn, đồng thời mang lại cảm giác sạch thoáng cho da đầu."
             },
             {
                 name: "Combo Cocoon Tẩy Da Chết Cho Mặt 150ml + Toàn Thân 200ml Từ Cà Phê Đắk Lắk",
@@ -287,7 +287,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "290.000đ",
                 volume: "Combo tẩy da chết",
                 rating: "★ 5.0",
-                desc: "Tẩy da chết mặt và body từ cà phê Đắk Lắk, giúp da mịn màng, sáng khỏe."
+                desc: "Chi tiết sản phẩm: Combo tẩy da chết mặt và body từ hạt cà phê Đắk Lắk xay mịn, mang đến trải nghiệm spa tại nhà. | Nhãn hàng: Cocoon – nổi tiếng với sản phẩm tẩy da chết từ cà phê. | Thể tích: Tẩy da chết mặt 150ml + body 200ml. | Thành phần: Hạt cà phê Đắk Lắk, bơ cacao, glycerin, dầu thực vật. | Công dụng: Giúp loại bỏ tế bào chết, hỗ trợ làm sáng và mịn bề mặt da, giúp da dễ hấp thu dưỡng chất hơn."
             },
             {
                 name: "Combo 2 Nước Tẩy Trang Bí Đao Cocoon Làm Sạch & Giảm Dầu 500ml",
@@ -300,7 +300,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "590.000đ",
                 volume: "Combo 2 chai 500ml",
                 rating: "★ 4.9",
-                desc: "Bộ đôi nước tẩy trang bí đao, hỗ trợ làm sạch và kiểm soát dầu."
+                desc: "Chi tiết sản phẩm: Combo hai chai nước tẩy trang bí đao dành cho da dầu, hỗn hợp, thường xuyên trang điểm hoặc dùng kem chống nắng. | Nhãn hàng: Cocoon – thương hiệu thuần chay Việt Nam. | Thể tích: 2 chai x 500ml. | Thành phần: Chiết xuất bí đao, rau má, glycerin, chất làm sạch nguồn gốc thực vật. | Công dụng: Giúp làm sạch lớp trang điểm và bụi bẩn, hỗ trợ kiểm soát dầu, mang lại cảm giác mát dịu cho làn da."
             },
             {
                 name: "Combo Cocoon Mặt Nạ Nghệ Hưng Yên & Tẩy Da Chết Toàn Thân Cà Phê Đắk Lắk 30ml + 200ml",
@@ -313,7 +313,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "270.000đ",
                 volume: "Combo",
                 rating: "★ 4.8",
-                desc: "Kết hợp mặt nạ nghệ và tẩy da chết body cho da sáng khỏe toàn diện."
+                desc: "Chi tiết sản phẩm: Combo kết hợp chăm sóc da mặt và body với mặt nạ nghệ và tẩy da chết cà phê. | Nhãn hàng: Cocoon – tôn vinh nguyên liệu địa phương Việt Nam. | Thể tích: Mặt nạ nghệ 30ml + tẩy da chết body 200ml. | Thành phần: Bột nghệ Hưng Yên, chiết xuất cam thảo, hạt cà phê Đắk Lắk, bơ cacao. | Công dụng: Hỗ trợ làm sáng và mịn da, giúp bề mặt da thông thoáng, cảm giác sạch và mềm sau khi sử dụng."
             },
             {
                 name: "Nước Dưỡng Tóc Cocoon Tinh Dầu Bưởi 140ml (Mới)",
@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 oldPrice: "165.000đ",
                 volume: "140ml",
                 rating: "★ 4.9",
-                desc: "Xịt dưỡng tóc tinh dầu bưởi giúp tóc chắc khỏe, hỗ trợ mọc tóc."
+                desc: "Chi tiết sản phẩm: Xịt dưỡng tóc tinh dầu bưởi dạng sương nhẹ, dùng được cho tóc ẩm hoặc khô. | Nhãn hàng: Cocoon – thương hiệu thuần chay thân thiện với mái tóc và da đầu. | Thể tích: 140ml. | Thành phần: Tinh dầu vỏ bưởi, biotin, provitamin B5, glycerin. | Công dụng: Giúp cung cấp độ ẩm nhẹ, hỗ trợ tóc trông dày và khỏe hơn, mang lại mùi hương bưởi dễ chịu khi sử dụng."
             }
         ]
     };
@@ -378,7 +378,27 @@ document.addEventListener('DOMContentLoaded', function () {
         if (ratingEl) ratingEl.textContent = product.rating;
         if (currentPriceEl) currentPriceEl.textContent = product.currentPrice;
         if (oldPriceEl) oldPriceEl.textContent = product.oldPrice;
-        if (descEl) descEl.textContent = product.desc;
+
+        if (descEl && product.desc) {
+            const rows = product.desc
+                .split("|")
+                .map(item => item.trim())
+                .filter(Boolean);
+
+            const html = rows.map(row => {
+                const [label, ...rest] = row.split(":");
+                const value = rest.join(":").trim();
+
+                return `
+                <div class="desc-row">
+                    <span class="desc-label">${(label || "").trim()}:</span>
+                    <span class="desc-value">${value}</span>
+                </div>
+            `;
+            }).join("");
+
+            descEl.innerHTML = html;
+        }
     }
 
     // đổi ảnh chính khi click thumbnail

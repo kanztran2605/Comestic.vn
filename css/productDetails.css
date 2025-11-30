@@ -95,18 +95,45 @@
     font-size: 1.4rem;
     text-decoration: line-through;
     color: #999;
+    margin-bottom: 1rem;
 }
 
 .product-detail-desc {
-    margin-bottom: 1.2rem;
-    color: #555;
-    line-height: 1.6;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    padding: 1.8rem;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+/* Mỗi dòng mô tả */
+.product-detail-desc .desc-row {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.product-detail-desc .desc-label {
+    min-width: 130px;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #111111;
+    font-size: 1.35rem;
+}
+
+/* Nội dung bên phải */
+.product-detail-desc .desc-value {
+    font-size: 1.35rem;
+    color: #4b5563;
+    font-weight: 400;
+    line-height: 1.5;
 }
 
 .product-detail-actions {
     display: flex;
     gap: 1rem;
-    margin-bottom: 1.5rem;
 }
 
 /* ==========================
@@ -174,13 +201,22 @@
 /* ảnh + giảm khoảng trắng trên/dưới */
 .related-section .product-image-wrapper {
     position: relative;
-    padding: 12px 12px 8px;
+    margin: -24px 0.8rem 0;
+    width: calc(100% - 1.6rem);
+    aspect-ratio: 3 / 4;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .related-section .product-card .product-image {
     display: block;
-    width: 100%;
-    border-radius: 12px;
+    width: 90%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 18px;
+    margin: -24px auto 0;
     transition: transform .25s ease;
 }
 
@@ -188,29 +224,13 @@
     transform: scale(1.03);
 }
 
-/* FLASH DEAL góc trái – giống home/list */
-.related-section .product-card.flash::before {
-    content: "FLASH DEAL";
-    position: absolute;
-    top: 12px;
-    left: 16px;
-    padding: 4px 14px;
-    background: #ff7a00;
-    color: #fff;
-    font-weight: 600;
-    font-size: 1.2rem;
-    border-radius: 999px;
-    z-index: 5;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
-}
-
 /* Thanh FLASH DEAL dưới ảnh */
 .related-section .product-card .flash-bar {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4px 12px;
-    border-radius: 999px;
+    align-self: stretch;
+    text-align: center;
+    padding: 6px 0;
+    margin: -42px 0.8rem 6px;
+    border-radius: 25px;
     background: #ff7a00;
     color: #fff;
     font-weight: 600;
