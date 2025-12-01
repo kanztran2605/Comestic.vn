@@ -223,7 +223,7 @@
     /* Card giống home/detail: ảnh bo góc, có khoảng trắng trên */
     .product-list-section .product-card .product-image-wrapper {
         margin: 0;
-        padding: 35px 12px 8px;
+        padding: 45px 12px 10px;
         width: 100%;
         aspect-ratio: 1 / 1;
         display: flex;
@@ -246,7 +246,7 @@
     }
 
     .product-list-section .product-card .flash-bar {
-        margin: 6px 0.8rem 8px;
+        margin: 10px 0.8rem 8px;
     }
 }
 
