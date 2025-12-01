@@ -157,10 +157,12 @@
     padding: 10px 16px 16px;
 }
 
-/* ===== RESPONSIVE CHO BRAND GRID ===== */
-
+/* ==========================
+   MOBILE PRODUCT LIST
+   ========================== */
 @media (max-width: 768px) {
 
+    /* --- DANH MỤC SẢN PHẨM (brand-section) --- */
     .brand-section {
         padding: 1.4rem 1.6rem 1.8rem;
     }
@@ -180,6 +182,7 @@
         border-radius: 1.2rem;
         overflow: hidden;
         background: #fff;
+        box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
     }
 
     .brand-card .product-image-wrapper {
@@ -188,6 +191,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        background: #ffffff;
     }
 
     .brand-card .product-image {
@@ -198,64 +202,25 @@
     }
 
     .brand-card .product-name {
+        text-align: center;
         font-size: 1.3rem;
+        font-weight: 600;
+        padding: 0.4rem 0.2rem 1rem;
+        min-height: auto;
     }
 
-    .brand-card .product-actions {
-        margin-top: 0.4rem;
-    }
-}
-
-/* Mobile nhỏ: ưu tiên logo + tên, ẩn nút "Xem sản phẩm" để card thấp hơn */
-@media (max-width: 480px) {
     .brand-card .product-actions {
         display: none;
     }
-}
 
-@media (max-width: 768px) {
 
+    /* --- GRID SẢN PHẨM (card bên dưới) --- */
     .product-list-section .product-grid {
         grid-template-columns: 1fr 1fr;
         gap: 1.4rem;
     }
 
-    .product-list-section .product-card .product-image-wrapper {
-        margin: 1.2rem 0.8rem 0;
-        width: calc(100% - 1.6rem);
-        aspect-ratio: 3 / 4;
-    }
-
-    .product-list-section .product-card .product-image {
-        margin: 0 auto;
-    }
-
-    .product-list-section .product-card .flash-bar {
-        margin: 8px 0.8rem 8px;
-    }
-
-    .brand-section {
-        max-width: 1200px;
-        margin: 0 auto 1.6rem;
-        padding: 0 1.6rem;
-    }
-
-    .brand-section .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1.2rem;
-    }
-
-    .brand-card {
-        min-width: auto;
-    }
-}
-
-/* ==========================
-   MOBILE CARD SẢN PHẨM PRODUCT LIST
-   ========================== */
-@media (max-width: 768px) {
-
-    /* Ảnh giống home/detail: có khoảng trắng trên + bo góc */
+    /* Card giống home/detail: ảnh bo góc, có khoảng trắng trên */
     .product-list-section .product-card .product-image-wrapper {
         margin: 0;
         padding: 35px 12px 8px;
@@ -265,7 +230,6 @@
         align-items: stretch;
         justify-content: stretch;
         overflow: hidden;
-        /* không cho tràn viền khi hover */
     }
 
     .product-list-section .product-card .product-image {
@@ -283,6 +247,12 @@
 
     .product-list-section .product-card .flash-bar {
         margin: 6px 0.8rem 8px;
-        /* cách ảnh xuống dưới */
+    }
+}
+
+/* Mobile nhỏ: không cần nút trong danh mục để card gọn hơn */
+@media (max-width: 480px) {
+    .brand-card .product-actions {
+        display: none;
     }
 }
